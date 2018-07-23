@@ -19,7 +19,7 @@ export class AuthService {
     if (user.userName !== '' && user.password !== '' ) {
       console.log("logged in")
       this.loggedIn.next(true);
-      this.router.navigate(['/']);
+      this.router.navigate(['/dashboard']);
     }
   }
 
