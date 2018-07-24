@@ -12,6 +12,7 @@ import { BillingComponent } from './billing/billing.component'
 import { UsageComponent } from './usage/usage.component'
 import { ProfileComponent } from './profile/profile.component'
 import { LoginComponent } from './login/login.component';
+import { CustomerServiceComponent  } from './customer-service/customer-service.component'
 
 import { AuthGuard } from './auth/auth.guard';
 import { AuthService } from './auth/auth.service'
@@ -24,7 +25,8 @@ import { AuthService } from './auth/auth.service'
     BillingComponent,
     UsageComponent,
     ProfileComponent,
-    LoginComponent
+    LoginComponent,
+    CustomerServiceComponent
 
   ],
   imports: [
