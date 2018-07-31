@@ -8,14 +8,15 @@ import { AppNavComponent } from './app-nav/app-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatButtonModule, MatCardModule, MatInputModule, MatFormFieldModule, MatSidenavModule, MatIconModule, MatListModule, MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/material';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { BillingComponent } from './billing/billing.component'
-import { UsageComponent } from './usage/usage.component'
-import { ProfileComponent } from './profile/profile.component'
+import { BillingComponent } from './billing/billing.component';
+import { UsageComponent } from './usage/usage.component';
+import { ProfileComponent } from './profile/profile.component';
 import { LoginComponent } from './login/login.component';
-import { CustomerServiceComponent  } from './customer-service/customer-service.component'
+import { CustomerServiceComponent  } from './customer-service/customer-service.component';
 
+import { UserDetailsService } from './services/user-details.service';
 import { AuthGuard } from './auth/auth.guard';
-import { AuthService } from './auth/auth.service'
+import { AuthService } from './auth/auth.service';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,11 @@ import { AuthService } from './auth/auth.service'
     MatPaginatorModule,
     MatSortModule
   ],
-  providers: [AuthGuard, AuthService],
+  providers: [
+    AuthGuard,
+    AuthService,
+    UserDetailsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
