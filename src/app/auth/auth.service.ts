@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, fromEventPattern } from 'rxjs';
 import { User } from './user';
+import { Logger } from '../util/logger.service';
 
 @Injectable()
 export class AuthService {
@@ -12,7 +13,8 @@ export class AuthService {
   }
 
   constructor(
-    private router: Router
+    private router: Router,
+    private logger: Logger
   ) {}
 
   login(user: User) {

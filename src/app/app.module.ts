@@ -18,6 +18,7 @@ import { CustomerServiceComponent  } from './customer-service/customer-service.c
 import { UserDetailsService } from './services/user-details.service';
 import { AuthGuard } from './auth/auth.guard';
 import { AuthService } from './auth/auth.service';
+import { Logger } from './util/logger.service';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { AuthService } from './auth/auth.service';
     MatSortModule
   ],
   providers: [
+    Logger,
     AuthGuard,
     AuthService,
     UserDetailsService

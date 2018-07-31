@@ -1,8 +1,8 @@
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #drawer class="sidenav" fixedInViewport="true" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="!(isHandset$ | async)">
     <mat-toolbar color="primary">Menu</mat-toolbar>
-    <mat-card>
-      <b>Jay Ordway</b>
+    <mat-card *ngIf="userDetails">
+      <b>{{userDetails.name}}</b>
       <div class="small-text">
         406 Olmos Dr <a class="tab" href="#">Change</a><br> Leander TX 78641</div>
     </mat-card>
