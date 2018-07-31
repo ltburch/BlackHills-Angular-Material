@@ -18,3 +18,13 @@ body { margin: 0; font-family: 'Roboto', sans-serif; }
   text-align: right !important
 }
 
+.header-container.mat-toolbar.mat-primary {
+  height: 65px;
+  background: url('../images/nav-bg.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.mat-drawer-content {
+  background-color: #fff;
+}
