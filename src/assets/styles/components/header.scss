@@ -1,0 +1,27 @@
+//header styles
+.header-container {
+  &.header-container__main.mat-toolbar.mat-primary {
+    height: 65px;
+    background: url('../images/nav-bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  &.mat-toolbar.mat-primary {
+    background-color: $BlackHIllsPrimary;
+  }
+
+  .header--menu__icon {
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+  }
+
+  .header--menu__title {
+    text-align: center;
+    line-height: 65px;
+    vertical-align: middle;
+    margin-left: 35px;
+    font-weight: normal;
+}
+}

@@ -1,30 +1,19 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'partials/variables';
 
-html, body { height: 100%; }
-body { margin: 0; font-family: 'Roboto', sans-serif; }
+@import 'base/global';
+@import 'base/fonts';
+@import 'base/typography';
 
-
-.small-text{
-  font-size: x-small;
-}
+@import 'components/header';
 
 
-.tab {
-  margin-left: 5em
-}
 
 
-.right {
-  text-align: right !important
-}
 
-.header-container.mat-toolbar.mat-primary {
-  height: 65px;
-  background: url('../images/nav-bg.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-}
 
-.mat-drawer-content {
-  background-color: #fff;
-}
+
+
+
+// .mat-drawer-content {
+//   background-color: #fff;
+// }
