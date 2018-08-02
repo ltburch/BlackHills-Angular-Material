@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from './auth/auth.service';
+import { AnalyticsService } from './util/analytics.service';
 import { Validators } from '@angular/forms';
 
 @Component({
@@ -12,14 +13,16 @@ export class AppComponent implements OnInit {
   isAuth = true;
 
 
-  constructor(private auth: AuthService) {
+  constructor(
+    private auth: AuthService,
+    private analyticsService: AnalyticsService
+  ) {
 
   }
 
   ngOnInit() {
-    // this.auth.isLoggedIn.subscribe((loggedIn)=>{
-    //   this.isAuth = loggedIn
-    // })
+    this.analyticsService.sendEvent('one', 'two');
+
   }
 
 

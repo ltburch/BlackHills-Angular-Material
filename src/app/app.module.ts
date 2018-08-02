@@ -16,6 +16,7 @@ import { LoginComponent } from './login/login.component';
 import { CustomerServiceComponent  } from './customer-service/customer-service.component';
 
 import { UserDetailsService } from './services/user-details.service';
+import { AnalyticsService } from './util/analytics.service';
 import { AuthGuard } from './auth/auth.guard';
 import { AuthService } from './auth/auth.service';
 import { Logger } from './util/logger.service';
@@ -54,7 +55,8 @@ import { Logger } from './util/logger.service';
     Logger,
     AuthGuard,
     AuthService,
-    UserDetailsService
+    UserDetailsService,
+    AnalyticsService
   ],
   bootstrap: [AppComponent]
 })
