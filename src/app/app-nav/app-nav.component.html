@@ -1,18 +1,29 @@
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #drawer class="sidenav" fixedInViewport="true" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="!(isHandset$ | async)">
-    <mat-toolbar color="primary">Menu</mat-toolbar>
-    <mat-card *ngIf="userDetails">
-      <b>{{userDetails.name}}</b>
-      <div class="small-text">
-        {{userDetails.address}}<a class="tab" href="#">Change</a><br>{{ userDetails.city }} {{ userDetails.state }} {{ userDetails.zipCode }}</div>
+    <mat-toolbar color="primary"></mat-toolbar>
+    <mat-card *ngIf="userDetails" class="user__details">
+      <b class="user__details--name">{{userDetails.name}}</b>
+      <div class="user__details--address">
+        <div class="address--line1">{{userDetails.address}}</div>
+        <div class="address--line2">{{ userDetails.city }} {{ userDetails.state }} {{ userDetails.zipCode }}</div>
+      </div>
+      <div class="user__details--change">
+        <a class="tab address-changelink" href="#">Change</a>
+      </div>
     </mat-card>
-    <mat-nav-list>
+    <mat-nav-list class="main-nav--items">
       <a mat-list-item routerLink="/dashboard" routerLinkActive="active-link">Dashboard</a>
       <a mat-list-item routerLink="/billing" routerLinkActive="active-link">Billing</a>
       <a mat-list-item routerLink="/usage" routerLinkActive="active-link">Usage</a>
       <a mat-list-item routerLink="/profile" routerLinkActive="active-link">Profile</a>
       <a mat-list-item routerLink="/customer-service" routerLinkActive="active-link">Customer Service</a>
     </mat-nav-list>
+    <mat-nav-list class="additional-nav--items">
+      <a mat-list-item>Outages</a>
+      <a mat-list-item>Customer Service</a>
+      <a mat-list-item>Add Service</a>
+    </mat-nav-list>
+    <button mat-raised-button class="secondary-button sign-out-button">SIGN OUT</button>
   </mat-sidenav>
   <mat-sidenav-content>
     <!-- show this component by default -->
