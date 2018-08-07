@@ -13,6 +13,7 @@
     margin: 0 20px;
     border-bottom: 2px solid $borderGray;
 
+
     &.mat-card {
       box-shadow: none;
     }
@@ -82,7 +83,7 @@
     font-size: 12px;
     text-transform: uppercase;
     font-weight: normal;
-    color: #000;
+    color: $lightGray;
     padding: 10px;
     height: auto;
 
