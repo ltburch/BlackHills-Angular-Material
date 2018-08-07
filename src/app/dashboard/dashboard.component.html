@@ -1,14 +1,57 @@
 <mat-card class="card">
+  Form Elements
+  <mat-card-content>
+    <p>
+      <mat-form-field appearance="standard">
+        <mat-label>Standard form field</mat-label>
+        <input matInput placeholder="Placeholder" [type]="hide ? 'password' : 'text'">
+        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+        <mat-hint>Hint</mat-hint>
+      </mat-form-field>
+    </p>
+
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>Fill form field</mat-label>
+        <input matInput placeholder="Placeholder">
+        <mat-hint>Hint</mat-hint>
+      </mat-form-field>
+    </p>
+
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>Fill form field</mat-label>
+        <input matInput placeholder="Enter your email" [formControl]="email" required>
+        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+    </p>
+
+  </mat-card-content>
+</mat-card>
+
+<mat-card class="card">
   Buttons
   <mat-card-content>
     <p>
-
       <button mat-button class="text-button">Text Button</button></p>
     <p>
-
       <button mat-raised-button class="primary-button">Raised Button</button></p>
   </mat-card-content>
 </mat-card>
+
+<mat-card class="card">
+  <div class="tab__title">
+    Tabs
+  </div>
+  <mat-card-content>
+    <mat-tab-group>
+      <mat-tab label="First"> Content 1 </mat-tab>
+      <mat-tab label="Second"> Content 2 </mat-tab>
+      <mat-tab label="Third"> Content 3 </mat-tab>
+    </mat-tab-group>
+  </mat-card-content>
+</mat-card>
+
 <mat-card class="card">Billing
   <mat-card-actions class="right">
     <mat-card-content>

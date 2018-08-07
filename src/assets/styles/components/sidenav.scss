@@ -1,0 +1,103 @@
+.sidenav {
+  &.mat-sidenav {
+    min-width: 85.33%;
+  }
+
+  .mat-toolbar {
+    height: 65px;
+  }
+
+  .user__details {
+    padding: 20px 0 20px 10px;
+    min-height: 80px;
+    margin: 0 20px;
+    border-bottom: 2px solid $borderGray;
+
+
+    &.mat-card {
+      box-shadow: none;
+    }
+  }
+
+  .user__details--name {
+    font-size: 25px;
+    padding-bottom: 10px;
+    display: block;
+  }
+
+  .user__details--address {
+    font-size: 15px;
+    font-weight: lighter;
+    float: left;
+  }
+
+  .user__details--change {
+    float: right;
+  }
+
+  .address-changelink {
+    font-size: 12px;
+    text-align: right;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+}
+
+.main-nav--items {
+  &.mat-nav-list {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin: 0 20px;
+    border-bottom: 2px solid $borderGray;
+  }
+
+  a.mat-list-item {
+    height: auto;
+    padding: 10px 0;
+    margin-left: 10px;
+    width: max-content;
+
+    &:hover {
+      background: none;
+    }
+
+    &.active-link {
+      border-bottom: 2px solid $BlackHIllsPrimary;
+    }
+
+    .mat-list-item-content {
+      padding: 0;
+    }
+  }
+}
+
+.additional-nav--items {
+  &.mat-nav-list {
+    padding-top: 10px;
+    padding-bottom: 50px;
+    margin: 0 20px;
+    border-bottom: 2px solid $borderGray;
+  }
+
+  a.mat-list-item {
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: normal;
+    color: $lightGray;
+    padding: 10px;
+    height: auto;
+
+    .mat-list-item-content {
+      padding: 0;
+    }
+
+    &:hover {
+      background: none;
+    }
+  }
+}
+
+.sign-out-button.mat-raised-button {
+  margin-top: 20px;
+  margin-left: 30px;
+}
