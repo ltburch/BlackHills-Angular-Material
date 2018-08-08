@@ -13,7 +13,7 @@ export class DashboardComponent implements OnInit {
 
   }
   email = new FormControl('', [Validators.required, Validators.email]);
-
+  hide = true; //property for form element
 
   getErrorMessage() {
     return this.email.hasError('required') ? 'You must enter a value' :
