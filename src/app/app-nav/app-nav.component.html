@@ -14,10 +14,10 @@
     </mat-card>
     <mat-nav-list class="main-nav--items">
       <a mat-list-item routerLink="/dashboard" routerLinkActive="active-link" (click)="drawer.toggle()">Dashboard</a>
-      <a mat-list-item routerLink="/billing" routerLinkActive="active-link">Billing</a>
-      <a mat-list-item routerLink="/usage" routerLinkActive="active-link">Usage</a>
-      <a mat-list-item routerLink="/profile" routerLinkActive="active-link">Profile</a>
-      <a mat-list-item routerLink="/customer-service" routerLinkActive="active-link">Customer Service</a>
+      <a mat-list-item routerLink="/billing" routerLinkActive="active-link" (click)="drawer.toggle()">Billing</a>
+      <a mat-list-item routerLink="/usage" routerLinkActive="active-link" (click)="drawer.toggle()">Usage</a>
+      <a mat-list-item routerLink="/profile" routerLinkActive="active-link" (click)="drawer.toggle()">Profile</a>
+      <a mat-list-item routerLink="/customer-service" routerLinkActive="active-link" (click)="drawer.toggle()">Customer Service</a>
     </mat-nav-list>
     <mat-nav-list class="additional-nav--items">
       <a mat-list-item>Outages</a>
