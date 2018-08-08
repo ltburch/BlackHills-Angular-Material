@@ -1,6 +1,6 @@
 <mat-sidenav-container class="sidenav-container">
   <!-- <mat-sidenav #drawer class="sidenav" fixedInViewport="true" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'"> -->
-  <mat-sidenav #drawer class="sidenav" fixedInViewport="true">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport="false">
     <mat-toolbar color="primary"></mat-toolbar>
     <mat-card *ngIf="userDetails" class="user__details">
       <b class="user__details--name">{{userDetails.name}}</b>
@@ -13,7 +13,7 @@
       </div>
     </mat-card>
     <mat-nav-list class="main-nav--items">
-      <a mat-list-item routerLink="/dashboard" routerLinkActive="active-link">Dashboard</a>
+      <a mat-list-item routerLink="/dashboard" routerLinkActive="active-link" (click)="drawer.toggle()">Dashboard</a>
       <a mat-list-item routerLink="/billing" routerLinkActive="active-link">Billing</a>
       <a mat-list-item routerLink="/usage" routerLinkActive="active-link">Usage</a>
       <a mat-list-item routerLink="/profile" routerLinkActive="active-link">Profile</a>
@@ -37,7 +37,7 @@
     <!-- show this component by default -->
 
     <!-- show this component when the user opens a new page -->
-    <!-- <mat-toolbar color="primary" class="header-container">
+    <!-- <mat-toolbar *ngIf="isSubPage" color="primary" class="header-container">
       <button type="button" class="header--menu__icon" aria-label="Close Icon" mat-icon-button *ngIf="isHandset$ | async">
         <mat-icon aria-label="close icon">close</mat-icon>
       </button>
