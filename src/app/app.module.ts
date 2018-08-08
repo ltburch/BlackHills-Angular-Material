@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppNavComponent } from './app-nav/app-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatButtonModule, MatCardModule, MatInputModule, MatFormFieldModule,
-         MatSidenavModule, MatSnackBarModule, MatExpansionModule, MatTabsModule, MatIconModule, MatListModule, MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/material';
+         MatSidenavModule, MatChipsModule, MatSnackBarModule, MatExpansionModule, MatTabsModule, MatIconModule, MatListModule, MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/material';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { BillingComponent } from './billing/billing.component';
 import { UsageComponent } from './usage/usage.component';
@@ -52,7 +52,8 @@ import { Logger } from './util/logger.service';
     MatSortModule,
     MatTabsModule,
     MatExpansionModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatChipsModule
   ],
   providers: [
     Logger,
