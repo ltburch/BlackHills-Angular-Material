@@ -1,6 +1,10 @@
 .sidenav {
   &.mat-sidenav {
     min-width: 85.33%;
+
+    @media (min-width: 600px) {
+      min-width: 300px;
+    }
   }
 
   .mat-toolbar {

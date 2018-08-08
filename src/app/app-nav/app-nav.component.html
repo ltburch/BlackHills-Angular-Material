@@ -1,5 +1,6 @@
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport="true" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="!(isHandset$ | async)">
+  <!-- <mat-sidenav #drawer class="sidenav" fixedInViewport="true" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'"> -->
+  <mat-sidenav #drawer class="sidenav" fixedInViewport="true">
     <mat-toolbar color="primary"></mat-toolbar>
     <mat-card *ngIf="userDetails" class="user__details">
       <b class="user__details--name">{{userDetails.name}}</b>
@@ -28,19 +29,20 @@
   <mat-sidenav-content>
     <!-- show this component by default -->
     <mat-toolbar color="primary" class="header-container header-container__main">
-      <button type="button" class="header--menu__icon" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
+      <!-- <button type="button" class="header--menu__icon" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async"> -->
+      <button type="button" class="header--menu__icon" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
     </mat-toolbar>
     <!-- show this component by default -->
 
     <!-- show this component when the user opens a new page -->
-    <mat-toolbar color="primary" class="header-container">
+    <!-- <mat-toolbar color="primary" class="header-container">
       <button type="button" class="header--menu__icon" aria-label="Close Icon" mat-icon-button *ngIf="isHandset$ | async">
         <mat-icon aria-label="close icon">close</mat-icon>
       </button>
       <div class="header--menu__title">Page Title</div>
-    </mat-toolbar>
+    </mat-toolbar> -->
     <!-- show this component when the user opens a new page -->
 
     <router-outlet></router-outlet>
