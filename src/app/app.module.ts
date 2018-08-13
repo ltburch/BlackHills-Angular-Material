@@ -20,6 +20,7 @@ import { AnalyticsService } from './util/analytics.service';
 import { AuthGuard } from './auth/auth.guard';
 import { AuthService } from './auth/auth.service';
 import { Logger } from './util/logger.service';
+import { AccountSelectorComponent } from './account-selector/account-selector.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { Logger } from './util/logger.service';
     UsageComponent,
     ProfileComponent,
     LoginComponent,
-    CustomerServiceComponent
+    CustomerServiceComponent,
+    AccountSelectorComponent
 
   ],
   imports: [
