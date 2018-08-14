@@ -1,0 +1,15 @@
+.section__search {
+  padding: 22px 15px 8px;
+
+  .mat-form-field {
+    width: 100%;
+
+    .mat-form-field-underline {
+      background-color: $BlackHIllsPrimary;
+    }
+
+    .mat-icon {
+      color: $lightFontGray;
+    }
+  }
+}

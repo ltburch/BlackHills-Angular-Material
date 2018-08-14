@@ -1,1 +1,51 @@
+@font-face {
+  font-family: 'AcuminProBlack';
+  src: url('fonts/acuminpro-black.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'AcuminProBold';
+  src: url('fonts/acuminpro-bold.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'AcuminProMedium';
+  src: url('fonts/acuminpro-medium.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'AcuminProRegular';
+  src: url('fonts/acuminpro-regular.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'AcuminProLight';
+  font-weight: 300;
+  src: url('fonts/acuminpro-regular.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'AcuminProCondBlack';
+  src: url('fonts/acuminprocond-black.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'AcuminProCondBold';
+  src: url('fonts/acuminprocond-bold.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'AcuminProCondMedium';
+  src: url('fonts/acuminprocond-medium.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'AcuminProCondRegular';
+  src: url('fonts/acuminprocond-regular.otf') format('opentype');
+}
+
 $RobotoFont: 'Roboto', sans-serif;
+$AcuminProBold: 'AcuminProBold';
+$AcuminProRegular: 'AcuminProRegular';
+$AcuminProMedium: 'AcuminProMedium';
+$AcuminProLight: 'AcuminProLight';

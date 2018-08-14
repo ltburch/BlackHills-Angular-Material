@@ -1,3 +1,10 @@
+<!-- ACCOUNT SELECTOR COMPONENT -->
+<mat-card class="card">
+  <mat-card-content>
+    <button mat-button (click)="openAccountSelectorDialog()">Open Account Selector</button>
+  </mat-card-content>
+</mat-card>
+
 <!--SNACKBAR COMPONENT-->
 <mat-card class="card">
   <mat-card-content>
@@ -43,7 +50,7 @@
       <mat-form-field appearance="standard">
         <mat-label>Standard form field</mat-label>
         <input matInput placeholder="Placeholder" [type]="hide ? 'password' : 'text'">
-        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+        <mat-icon matSuffix>{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
         <mat-hint>Hint</mat-hint>
       </mat-form-field>
     </p>

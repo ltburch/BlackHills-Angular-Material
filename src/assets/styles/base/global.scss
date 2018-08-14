@@ -1,5 +1,6 @@
 html, body {
   height: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -8,4 +9,14 @@ body {
 
 .right {
   text-align: right !important;
+}
+
+.section {
+  padding: 25px;
+}
+
+.section__heading {
+  font-size: 20px;
+  font-family: $AcuminProBold;
+  text-align: left;
 }

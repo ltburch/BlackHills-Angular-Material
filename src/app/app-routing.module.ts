@@ -9,10 +9,10 @@ import { LoginComponent } from './login/login.component';
 import { CustomerServiceComponent } from './customer-service/customer-service.component';
 import { AccountSelectorComponent } from './account-selector/account-selector.component';
 
-
 //  { path: 'login', component: LoginComponent },
 const routes: Routes = [
   { path: '',   redirectTo: 'dashboard', pathMatch: 'full' },
+  //{ path: 'login', component: LoginComponent, canActivate: [AuthGuard] },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'billing', component: BillingComponent, canActivate: [AuthGuard] },
   { path: 'usage', component:  UsageComponent, canActivate: [AuthGuard] },

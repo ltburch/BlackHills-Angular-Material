@@ -13,6 +13,8 @@ import { UserDetails } from '../models/user-details';
 export class AppNavComponent {
 
   userDetails: UserDetails = null;
+  isSecondaryHeader: boolean = true;
+  //isActionSpecified: boolean = true;
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(

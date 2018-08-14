@@ -28,7 +28,7 @@
   </mat-sidenav>
   <mat-sidenav-content>
     <!-- show this component by default -->
-    <mat-toolbar color="primary" class="header-container header-container__main">
+    <mat-toolbar *ngIf="!isSecondaryHeader" color="primary" class="header-container header-container__main">
       <!-- <button type="button" class="header--menu__icon" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async"> -->
       <button type="button" class="header--menu__icon" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
@@ -36,16 +36,17 @@
     </mat-toolbar>
     <!-- show this component by default -->
 
-    <!-- show this component when the user opens a new page -->
-    <!-- <mat-toolbar color="primary" class="header-container">
-      <button type="button" class="header--menu__icon" aria-label="Close Icon" mat-icon-button *ngIf="isHandset$ | async">
+    <!-- show this component when the user opens a new task page -->
+    <mat-toolbar *ngIf="isSecondaryHeader" color="primary" class="header-container header-container__secondary">
+      <!-- <button type="button" class="header--menu__icon" aria-label="Close Icon" mat-icon-button *ngIf="isHandset$ | async">
         <mat-icon aria-label="close icon">close</mat-icon>
-      </button>
-      <div class="header--menu__title">Page Title</div>
-    </mat-toolbar> -->
+      </button> -->
+      <div class="header--menu__title">YOUR ACCOUNTS</div>
+    </mat-toolbar>
     <!-- show this component when the user opens a new page-->
 
-    <router-outlet></router-outlet>
-    <!-- Add Content Here -->
+
   </mat-sidenav-content>
 </mat-sidenav-container>
+<router-outlet></router-outlet>
+<!-- Add Content Here -->

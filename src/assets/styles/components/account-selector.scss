@@ -1,0 +1,97 @@
+.account-selector {
+  .section__results--title {
+    font-size: 24px;
+    font-family: $AcuminProLight;
+    color: $fontGray;
+    padding-bottom: 10px;
+    padding-left: 5px;
+  }
+
+  .section__results--count {
+    float: left;
+    color: $lightFontGray;
+    font-size: 14px;
+    font-family: $AcuminProMedium;
+    margin-bottom: 15px;
+    padding-left: 5px;
+  }
+
+  .section__results--action {
+    float: right;
+    margin-bottom: 15px;
+    padding-right: 5px;
+
+    a {
+      text-decoration: none;
+      font-size: 12px;
+      font-family: $AcuminProMedium;
+      text-transform: uppercase;
+    }
+  }
+
+  .section__results--item {
+    clear: both;
+    border-top: 1px solid $borderGray;
+    padding: 20px 5px;
+
+    &:last-of-type {
+      border-bottom: 1px solid $borderGray;
+    }
+
+    .account-info {
+      display: flex;
+      justify-content: space-between;
+      color: inherit;
+    }
+
+    .account-info__address {
+      font-family: $RobotoFont;
+      font-size: 14px;
+      color: $blackText;
+      padding-bottom: 5px;
+    }
+
+    .account-info__number {
+      font-family: $RobotoFont;
+      font-size: 14px;
+      font-weight: 300;
+      color: $lighterGray;
+    }
+
+    .account-info--balance {
+
+      .account-info__amount {
+        font-family: $RobotoFont;
+        font-size: 18px;
+        font-weight: bold;
+        padding-bottom: 5px;
+        text-align: right;
+        color: $black;
+      }
+
+      &.past-due {
+        .account-info__amount {
+          color: $BlackHillsOrange;
+        }
+
+        .account-info__due {
+          font-family: $AcuminProMedium;
+        }
+      }
+
+      .account-info__due {
+        font-size: 12px;
+        font-weight: 300;
+        text-align: right;
+      }
+    }
+
+    &.selected {
+      background-color: rgba(245,128,37,0.3);
+      margin-left: -99px;
+      margin-right: -99px;
+      padding-left: 104px;
+      padding-right: 104px;
+    }
+  }
+}

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {MatSnackBar} from '@angular/material';
+// import {MatDialog, MatDialogRef} from '@angular/material';
+// import { AccountSelectorComponent } from '../account-selector/account-selector.component';
+
 
 @Component({
   selector: 'dashboard',
@@ -15,13 +18,27 @@ export class DashboardComponent implements OnInit {
   email = new FormControl('', [Validators.required, Validators.email]);
   hide = true; //property for form element
 
+  // constructor(public snackBar: MatSnackBar, private dialog: MatDialog) {}
+  constructor(public snackBar: MatSnackBar) {}
+
+  //for account selector dialog
+  //accountSelectorDialogRef: MatDialogRef<AccountSelectorComponent>;
+
+ //  openAccountSelectorDialog() {
+ //   this.accountSelectorDialogRef = this.dialog.open(AccountSelectorComponent, {
+ //     width: '100vw',
+ //     maxWidth: '100vw',
+ //     height: '100vh',
+ //     maxHeight: '100vh'
+ //   });
+ // }
+
   getErrorMessage() {
     return this.email.hasError('required') ? 'You must enter a value' :
         this.email.hasError('email') ? 'Not a valid email' :
             '';
   }
 
-  constructor(public snackBar: MatSnackBar) {}
 
    openSnackBar(message: string, action: string) {
      this.snackBar.open(message, action, {

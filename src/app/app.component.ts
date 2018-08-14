@@ -12,6 +12,8 @@ export class AppComponent implements OnInit {
 
   isAuth = true;
 
+  //isSecondaryNav = true;
+
 
   constructor(
     private auth: AuthService,
