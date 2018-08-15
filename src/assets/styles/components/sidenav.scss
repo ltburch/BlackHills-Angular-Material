@@ -1,3 +1,7 @@
+.sidenav-container.mat-drawer-container {
+  position: inherit;
+}
+
 .sidenav {
   &.mat-sidenav {
     min-width: 85.33%;
@@ -9,7 +13,7 @@
 
   .mat-toolbar {
     height: 65px;
-    background: url('../images/BHOrangeNavHeader.png');
+    background: url('../images/BHOrangeNAVHeader.png');
     background-repeat: no-repeat;
     background-size: cover;
   }

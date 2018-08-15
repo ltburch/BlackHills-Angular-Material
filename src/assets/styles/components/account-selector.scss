@@ -86,7 +86,7 @@
       }
     }
 
-    &.selected {
+    &:hover, &:focus {
       background-color: rgba(245,128,37,0.3);
       margin-left: -99px;
       margin-right: -99px;

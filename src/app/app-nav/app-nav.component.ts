@@ -3,6 +3,7 @@ import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/l
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { UserDetailsService } from '../services/user-details.service';
+import { NavbarService } from '../services/navbar.service';
 import { UserDetails } from '../models/user-details';
 
 @Component({
@@ -13,7 +14,6 @@ import { UserDetails } from '../models/user-details';
 export class AppNavComponent {
 
   userDetails: UserDetails = null;
-  isSecondaryHeader: boolean = true;
   //isActionSpecified: boolean = true;
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
@@ -24,7 +24,8 @@ export class AppNavComponent {
 
   constructor(
     private breakpointObserver: BreakpointObserver,
-    private userDetailsService: UserDetailsService
+    private userDetailsService: UserDetailsService,
+    public nav: NavbarService
   ) {
 
     this.userDetailsService.getCurrentUser().subscribe(this.gotUserDetails.bind(this));

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
+import { NavbarService } from '../services/navbar.service';
+
 
 @Component({
   selector: 'app-account-selector',
@@ -13,13 +15,21 @@ export class AccountSelectorComponent implements OnInit {
   options: string[] = ['1397 Timothy Ridge Dr.', '21353467', '24524 Florent Ave', '1105 Central Parkway'];
   filteredOptions: Observable<string[]>;
 
+  constructor( public secondaryNav: NavbarService ) {}
+
   ngOnInit() {
+
+    setTimeout(() => {
+      this.secondaryNav.show(); //show secondary navigation on this page.
+    });
+
     this.filteredOptions = this.searchControl.valueChanges
       .pipe(
         startWith(''),
         map(value => this._filter(value))
       );
   }
+
 
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();

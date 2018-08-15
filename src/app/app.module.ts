@@ -18,6 +18,7 @@ import { LoginComponent } from './login/login.component';
 import { CustomerServiceComponent  } from './customer-service/customer-service.component';
 
 import { UserDetailsService } from './services/user-details.service';
+import { NavbarService } from './services/navbar.service';
 import { AnalyticsService } from './util/analytics.service';
 import { AuthGuard } from './auth/auth.guard';
 import { AuthService } from './auth/auth.service';
@@ -67,7 +68,8 @@ import { AccountSelectorComponent } from './account-selector/account-selector.co
     AuthGuard,
     AuthService,
     UserDetailsService,
-    AnalyticsService
+    AnalyticsService,
+    NavbarService
   ],
   bootstrap: [AppComponent]
   //entryComponents: [AccountSelectorComponent]

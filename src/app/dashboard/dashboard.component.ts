@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {MatSnackBar} from '@angular/material';
+//NavbarService is used to show/hide the secondary navigation
+import { NavbarService } from '../services/navbar.service';
 // import {MatDialog, MatDialogRef} from '@angular/material';
 // import { AccountSelectorComponent } from '../account-selector/account-selector.component';
 
@@ -14,12 +16,16 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
 
+    setTimeout(() => {
+      this.secondaryNav.hide(); //hide secondary navigation on this page.
+    });
+
   }
   email = new FormControl('', [Validators.required, Validators.email]);
   hide = true; //property for form element
 
   // constructor(public snackBar: MatSnackBar, private dialog: MatDialog) {}
-  constructor(public snackBar: MatSnackBar) {}
+  constructor(public snackBar: MatSnackBar, public secondaryNav: NavbarService) {}
 
   //for account selector dialog
   //accountSelectorDialogRef: MatDialogRef<AccountSelectorComponent>;
