@@ -14,6 +14,9 @@ import { NavbarService } from '../services/navbar.service';
 })
 export class DashboardComponent implements OnInit {
 
+  // constructor(public snackBar: MatSnackBar, private dialog: MatDialog) {}
+  constructor(public snackBar: MatSnackBar, public secondaryNav: NavbarService) {}
+
   ngOnInit() {
 
     setTimeout(() => {
@@ -24,8 +27,7 @@ export class DashboardComponent implements OnInit {
   email = new FormControl('', [Validators.required, Validators.email]);
   hide = true; //property for form element
 
-  // constructor(public snackBar: MatSnackBar, private dialog: MatDialog) {}
-  constructor(public snackBar: MatSnackBar, public secondaryNav: NavbarService) {}
+
 
   //for account selector dialog
   //accountSelectorDialogRef: MatDialogRef<AccountSelectorComponent>;

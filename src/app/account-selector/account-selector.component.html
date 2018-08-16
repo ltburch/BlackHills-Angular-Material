@@ -5,10 +5,10 @@
   <div class="section__search">
     <form class="search-form">
       <mat-form-field>
-        <input type="text" placeholder="Search Accounts" aria-label="Number" matInput [formControl]="searchControl" [matAutocomplete]="auto">
+        <input type="text" placeholder="Search Accounts" aria-label="Number" matInput [formControl]="searchControl" [matAutocomplete]="auto" (ngModelChange)="updatedVal($event)">
         <mat-icon matSuffix>search</mat-icon>
         <mat-autocomplete #auto="matAutocomplete">
-          <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+          <mat-option [ngClass]="{'hide-autocomplete': !showAutocomplete}" *ngFor="let option of filteredOptions | async" [value]="option">
             {{option}}
           </mat-option>
         </mat-autocomplete>

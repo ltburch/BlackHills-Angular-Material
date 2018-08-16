@@ -12,7 +12,7 @@ export class NavbarService {
 
   show() { this.visible = true; }
 
-showPrimaryNav() {
+showSecondaryNav() {
   this.show();
 }
 

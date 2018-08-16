@@ -14,6 +14,7 @@ export class AccountSelectorComponent implements OnInit {
   searchControl = new FormControl();
   options: string[] = ['1397 Timothy Ridge Dr.', '21353467', '24524 Florent Ave', '1105 Central Parkway'];
   filteredOptions: Observable<string[]>;
+  showAutocomplete: boolean = false;
 
   constructor( public secondaryNav: NavbarService ) {}
 
@@ -28,6 +29,7 @@ export class AccountSelectorComponent implements OnInit {
         startWith(''),
         map(value => this._filter(value))
       );
+
   }
 
 
@@ -37,6 +39,14 @@ export class AccountSelectorComponent implements OnInit {
     return this.options.filter(option => option.toLowerCase().includes(filterValue));
   }
 
+  //show options dropdown on input.
+  updatedVal(e) {
+    if(e && e.length >= 1) {
+       this.showAutocomplete = true;
+    } else {
+       this.showAutocomplete = false;
+    }
+  }
 
 
 
