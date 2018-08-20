@@ -1,156 +1,160 @@
-<!--SNACKBAR COMPONENT-->
-<mat-card class="card">
-  <mat-card-content>
-    <button mat-raised-button class="primary-button" (click)="openSnackBar('This is a snackbar.', 'Munch!!!')">Show snack-bar</button>
-  </mat-card-content>
-</mat-card>
+<section class="section account-selector">
+  <div class="container-sm">
+    <!--SNACKBAR COMPONENT-->
+    <mat-card class="card">
+      <mat-card-content>
+        <button mat-raised-button class="primary-button" (click)="openSnackBar('This is a snackbar.', 'Munch!!!')">Show snack-bar</button>
+      </mat-card-content>
+    </mat-card>
 
-<!--CHIPS COMPONENT-->
-<mat-card class="card">
-  CHIPS
-  <mat-card-content>
-    <mat-chip-list>
-      <mat-chip>Papadum</mat-chip>
-      <mat-chip>Naan</mat-chip>
-      <mat-chip>Dal</mat-chip>
-    </mat-chip-list>
-  </mat-card-content>
-</mat-card>
+    <!--CHIPS COMPONENT-->
+    <mat-card class="card">
+      CHIPS
+      <mat-card-content>
+        <mat-chip-list>
+          <mat-chip>Papadum</mat-chip>
+          <mat-chip>Naan</mat-chip>
+          <mat-chip>Dal</mat-chip>
+        </mat-chip-list>
+      </mat-card-content>
+    </mat-card>
 
-<!--EXPANSION PANEL COMPONENT-->
-<mat-expansion-panel>
-  <mat-expansion-panel-header>
-    <mat-panel-title>
-      Expanding Card
-    </mat-panel-title>
-    <mat-panel-description>
-      Click on this header to expand!
-    </mat-panel-description>
-  </mat-expansion-panel-header>
-  <mat-form-field>
-    <input matInput placeholder="First name">
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput placeholder="Age">
-  </mat-form-field>
-</mat-expansion-panel>
-
-<!--FORM ELEMENTS COMPONENT-->
-<mat-card class="card">
-  Form Elements
-  <mat-card-content>
-    <p>
-      <mat-form-field appearance="standard">
-        <mat-label>Standard form field</mat-label>
-        <input matInput placeholder="Placeholder" [type]="hide ? 'password' : 'text'">
-        <mat-icon matSuffix>{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
-        <mat-hint>Hint</mat-hint>
+    <!--EXPANSION PANEL COMPONENT-->
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Expanding Card
+        </mat-panel-title>
+        <mat-panel-description>
+          Click on this header to expand!
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <mat-form-field>
+        <input matInput placeholder="First name">
       </mat-form-field>
-    </p>
-
-    <p>
-      <mat-form-field appearance="fill">
-        <mat-label>Fill form field</mat-label>
-        <input matInput placeholder="Placeholder">
-        <mat-hint>Hint</mat-hint>
+      <mat-form-field>
+        <input matInput placeholder="Age">
       </mat-form-field>
-    </p>
+    </mat-expansion-panel>
 
-    <p>
-      <mat-form-field appearance="fill">
-        <mat-label>Fill form field</mat-label>
-        <input matInput placeholder="Enter your email" [formControl]="email" required>
-        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
-      </mat-form-field>
-    </p>
+    <!--FORM ELEMENTS COMPONENT-->
+    <mat-card class="card">
+      Form Elements
+      <mat-card-content>
+        <p>
+          <mat-form-field appearance="standard">
+            <mat-label>Standard form field</mat-label>
+            <input matInput placeholder="Placeholder" [type]="hide ? 'password' : 'text'">
+            <mat-icon matSuffix>{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+            <mat-hint>Hint</mat-hint>
+          </mat-form-field>
+        </p>
 
-  </mat-card-content>
-</mat-card>
+        <p>
+          <mat-form-field appearance="fill">
+            <mat-label>Fill form field</mat-label>
+            <input matInput placeholder="Placeholder">
+            <mat-hint>Hint</mat-hint>
+          </mat-form-field>
+        </p>
 
-<!--BUTTONS COMPONENT-->
-<mat-card class="card">
-  Buttons
-  <mat-card-content>
-    <p>
-      <button mat-button class="text-button">Text Button</button></p>
-    <p>
-      <button mat-raised-button class="primary-button">Raised Button</button></p>
-  </mat-card-content>
-</mat-card>
+        <p>
+          <mat-form-field appearance="fill">
+            <mat-label>Fill form field</mat-label>
+            <input matInput placeholder="Enter your email" [formControl]="email" required>
+            <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+          </mat-form-field>
+        </p>
 
-<!--TABS COMPONENT-->
-<mat-card class="card">
-  <div class="tab__title">
-    Tabs
-  </div>
-  <mat-card-content>
-    <mat-tab-group>
-      <mat-tab label="First"> Content 1 </mat-tab>
-      <mat-tab label="Second"> Content 2 </mat-tab>
-      <mat-tab label="Third"> Content 3 </mat-tab>
-    </mat-tab-group>
-  </mat-card-content>
-</mat-card>
+      </mat-card-content>
+    </mat-card>
 
-<!--TABS COMPONENT-->
-<mat-card class="card">
-  <div class="tab__title">
-    Scrolling Tabs
-  </div>
-  <mat-card-content>
-    <mat-tab-group>
-      <mat-tab label="First"> Content 1 </mat-tab>
-      <mat-tab label="Second"> Content 2 </mat-tab>
-      <mat-tab label="Third"> Content 3 </mat-tab>
-      <mat-tab label="Four"> Content 4 </mat-tab>
-      <mat-tab label="Five"> Content 5 </mat-tab>
-      <mat-tab label="Six"> Content 6 </mat-tab>
-    </mat-tab-group>
-  </mat-card-content>
-</mat-card>
+    <!--BUTTONS COMPONENT-->
+    <mat-card class="card">
+      Buttons
+      <mat-card-content>
+        <p>
+          <button mat-button class="text-button">Text Button</button></p>
+        <p>
+          <button mat-raised-button class="primary-button">Raised Button</button></p>
+      </mat-card-content>
+    </mat-card>
 
-<!--CARD COMPONENT-->
-<mat-card class="card">Billing
-  <mat-card-actions class="right">
-    <mat-card-content>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-      in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
-    </mat-card-content>
-    <a routerLink="/billing">
+    <!--TABS COMPONENT-->
+    <mat-card class="card">
+      <div class="tab__title">
+        Tabs
+      </div>
+      <mat-card-content>
+        <mat-tab-group>
+          <mat-tab label="First"> Content 1 </mat-tab>
+          <mat-tab label="Second"> Content 2 </mat-tab>
+          <mat-tab label="Third"> Content 3 </mat-tab>
+        </mat-tab-group>
+      </mat-card-content>
+    </mat-card>
+
+    <!--TABS COMPONENT-->
+    <mat-card class="card">
+      <div class="tab__title">
+        Scrolling Tabs
+      </div>
+      <mat-card-content>
+        <mat-tab-group>
+          <mat-tab label="First"> Content 1 </mat-tab>
+          <mat-tab label="Second"> Content 2 </mat-tab>
+          <mat-tab label="Third"> Content 3 </mat-tab>
+          <mat-tab label="Four"> Content 4 </mat-tab>
+          <mat-tab label="Five"> Content 5 </mat-tab>
+          <mat-tab label="Six"> Content 6 </mat-tab>
+        </mat-tab-group>
+      </mat-card-content>
+    </mat-card>
+
+    <!--CARD COMPONENT-->
+    <mat-card class="card">Billing
+      <mat-card-actions class="right">
+        <mat-card-content>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+          in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+        </mat-card-content>
+        <a routerLink="/billing">
           <button  mat-raised-button color="primary">View Billing</button>
         </a>
-  </mat-card-actions>
-</mat-card>
-<mat-card class="card">Usage
-  <mat-card-actions class="right">
-    <mat-card-content>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-      in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
-    </mat-card-content>
-    <a routerLink="/usage">
+      </mat-card-actions>
+    </mat-card>
+    <mat-card class="card">Usage
+      <mat-card-actions class="right">
+        <mat-card-content>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+          in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+        </mat-card-content>
+        <a routerLink="/usage">
           <button  mat-raised-button color="primary">View Usage</button>
         </a>
-  </mat-card-actions>
-</mat-card>
-<mat-card class="card">Promo Card
-  <mat-card-actions class="right">
-    <mat-card-content>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-      in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
-    </mat-card-content>
-    <a routerLink="/profile">
+      </mat-card-actions>
+    </mat-card>
+    <mat-card class="card">Promo Card
+      <mat-card-actions class="right">
+        <mat-card-content>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+          in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+        </mat-card-content>
+        <a routerLink="/profile">
           <button  mat-raised-button color="primary">View Profile</button>
         </a>
-  </mat-card-actions>
-</mat-card>
-<mat-card class="card">Promo Card
-  <mat-card-actions class="right">
-    <mat-card-content>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-      in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
-    </mat-card-content>
-    <a routerLink="#">
+      </mat-card-actions>
+    </mat-card>
+    <mat-card class="card">Promo Card
+      <mat-card-actions class="right">
+        <mat-card-content>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+          in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+        </mat-card-content>
+        <a routerLink="#">
           <button  mat-raised-button color="primary">View Promo</button>
         </a>
-  </mat-card-actions>
-</mat-card>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</section>

@@ -14,13 +14,14 @@ import { UserDetails } from '../models/user-details';
 export class AppNavComponent {
 
   userDetails: UserDetails = null;
+  public isSmallScreen;
+
   //isActionSpecified: boolean = true;
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches)
     );
-
 
   constructor(
     private breakpointObserver: BreakpointObserver,
@@ -29,12 +30,13 @@ export class AppNavComponent {
   ) {
 
     this.userDetailsService.getCurrentUser().subscribe(this.gotUserDetails.bind(this));
+
   }
+
+
 
   gotUserDetails(userDetails: UserDetails) {
     this.userDetails = userDetails;
   }
-
-
 
   }

@@ -21,7 +21,7 @@ export class AccountSelectorComponent implements OnInit {
   ngOnInit() {
 
     setTimeout(() => {
-      this.secondaryNav.show(); //show secondary navigation on this page.
+      //this.secondaryNav.show(); //show secondary navigation on this page.
     });
 
     this.filteredOptions = this.searchControl.valueChanges

@@ -99,3 +99,42 @@
     }
   }
 }
+
+@media (min-width: $screen-sm) {
+  .account-selector {
+    .section__heading {
+      float: left;
+      margin-top: 20px;
+      margin-right: 50px;
+      padding-left: 15px;
+    }
+
+    .section__search {
+      float: left;
+      width: 300px;
+    }
+
+    .section__results {
+      clear: both;
+    }
+
+    .section__results--item {
+      padding: 30px 15px;
+
+      &:hover, &:focus {
+        margin-left: inherit;
+        margin-right: inherit;
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+    }
+
+    .section__results--count {
+      padding-left: 15px;
+    }
+
+    .section__results--action {
+      padding-right: 15px;
+    }
+  }
+}

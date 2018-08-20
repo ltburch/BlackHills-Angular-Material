@@ -1,0 +1,11 @@
+@media (min-width: $screen-sm) {
+  .container-sm {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .container-lg {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}

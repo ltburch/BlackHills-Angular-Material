@@ -11,7 +11,7 @@ import { AccountSelectorComponent } from './account-selector/account-selector.co
 
 //  { path: 'login', component: LoginComponent },
 const routes: Routes = [
-  { path: '',   redirectTo: 'dashboard', pathMatch: 'full' },
+  { path: '',   redirectTo: 'account-selector', pathMatch: 'full' },
   //{ path: 'login', component: LoginComponent, canActivate: [AuthGuard] },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'billing', component: BillingComponent, canActivate: [AuthGuard] },

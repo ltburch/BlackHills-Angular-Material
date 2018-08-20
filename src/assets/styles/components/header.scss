@@ -2,9 +2,11 @@
 .header-container {
     &.header-container__main.mat-toolbar.mat-primary {
       height: 65px;
-      background: url('../images/BHBlackHeader.png');
+      background-color: $black;
+      background-image: url('../images/BHWhiteHills-bg.svg');
       background-repeat: no-repeat;
-      background-size: cover;
+      background-size: 173px 24px;
+      background-position: 85% bottom;
     }
 
     &.mat-toolbar.mat-primary {
@@ -37,4 +39,13 @@
       text-transform: uppercase;
     }
   }
+}
+
+@media (min-width: $screen-sm) {
+  .header-container {
+      &.header-container__main.mat-toolbar.mat-primary {
+        height: 125px;
+        background-size: 288px 40px;
+      }
+    }
 }
