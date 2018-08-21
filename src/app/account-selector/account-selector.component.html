@@ -27,22 +27,22 @@
       <div class="section__results--action">
         <a href="#">NEW</a>
       </div>
-      <div class="section__results--item">
+      <div class="section__results--item" *ngIf="accountPremiseInfo">
         <a routerLink="/dashboard" routerLinkActive="active-link" class="account-info">
           <div class="account-info--details">
             <div class="account-info__address">
-              1394 Timothy Ridge Dr.
+              {{accountPremiseInfo.premiseInfo[0].address2}}
             </div>
             <div class="account-info__number">
-              21353467-2345
+              {{accountPremiseInfo.accountId}}
             </div>
           </div>
-          <div class="account-info--balance past-due">
+          <div class="account-info--balance {{addPastDueClass | PastDueDate: accountInfo.daysTillDue}}" *ngIf="accountInfo">
             <div class="account-info__amount">
-              $42.56
+              {{accountInfo.totalAmtDue}}
             </div>
             <div class="account-info__due">
-              PAST DUE
+              {{dueDate | DueDate: accountInfo.daysTillDue}}
             </div>
           </div>
         </a>
