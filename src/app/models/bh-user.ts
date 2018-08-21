@@ -38,7 +38,7 @@ export class BHUser {
   businessName: string; // made uppercase
   businessType: string;
 
-  cisAccountNumbers: Array<number>;
+  cisAccountNumbers: Array<string>;
 
   primaryPhoneNumber: string;
   secondaryPhoneNumber: string;
