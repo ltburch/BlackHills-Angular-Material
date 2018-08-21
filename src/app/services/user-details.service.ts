@@ -1,20 +1,11 @@
 import { Observable, of } from 'rxjs';
 import { plainToClass } from 'class-transformer';
-import { UserDetails } from '../models/user-details';
 import { BHUser } from '../models/bh-user';
 import { Logger } from '../util/logger.service';
 
 export class UserDetailsService {
-  dummyValue = '{ \
-    \"userId\": \"ltburch\", \
-    \"name": \"Lee Burch", \
-    \"address\": \"2800 N Lake Shore Dr\", \
-    \"city\":\"Chicago\", \
-    \"state\":\"IL\", \
-    \"zipCode\":\"60654\" \
-  }';
 
-  dummyValue2 = '{ \
+  dummyValue = '{ \
     \"personId\": 1234567, \
     \"landlord\": false, \
     \"posId\": \"1\", \
@@ -42,9 +33,9 @@ constructor() {
   // the signature should likely remain the same as we go about getting a real service here
   // this is simply returning awhat is essentially a hard coded value at the moment
   // though the real version will be making a http call to our service layer (and actually will be asynchronous)
-  getCurrentUser(): Observable<UserDetails> {
-    console.log(this.dummyValue2);
-    const rv = plainToClass(UserDetails, JSON.parse(this.dummyValue2) as BHUser);
+  getCurrentUser(): Observable<BHUser> {
+    console.log(this.dummyValue);
+    const rv = plainToClass(BHUser, JSON.parse(this.dummyValue) as BHUser);
     return of( rv ) ;
   }
 }

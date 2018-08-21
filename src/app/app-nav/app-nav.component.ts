@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { UserDetailsService } from '../services/user-details.service';
 import { NavbarService } from '../services/navbar.service';
-import { UserDetails } from '../models/user-details';
+import { BHUser } from '../models/bh-user';
 
 @Component({
   selector: 'app-nav',
@@ -13,7 +13,7 @@ import { UserDetails } from '../models/user-details';
 })
 export class AppNavComponent {
 
-  userDetails: UserDetails = null;
+  bhUser: BHUser = null;
   public isSmallScreen;
 
   // isActionSpecified: boolean = true;
@@ -35,8 +35,8 @@ export class AppNavComponent {
 
 
 
-  gotUserDetails(userDetails: UserDetails) {
-    this.userDetails = userDetails;
+  gotUserDetails(bhUser: BHUser) {
+    this.bhUser = bhUser;
   }
 
   }
