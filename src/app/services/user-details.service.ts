@@ -27,7 +27,7 @@ export class UserDetailsService {
     \"middleName\": \"E\", \
     \"businessName\": \"Acme\", \
     \"businessType\": \"mail order retail\", \
-    \"cisAccountNumbers\": [ 1234567, 2345678, 3456789 ], \
+    \"cisAccountNumbers\": [ 82350, 2345678, 3456789 ], \
     \"primaryPhoneNumber\": \"605-555-1212\", \
     \"secondaryPhoneNumber\": \"888-890-5554\", \
     \"birthDate\": \"11/22/33\", \
