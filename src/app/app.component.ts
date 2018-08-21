@@ -12,7 +12,7 @@ export class AppComponent implements OnInit {
 
   isAuth = true;
 
-  //isSecondaryNav = true;
+  // isSecondaryNav = true;
 
 
   constructor(

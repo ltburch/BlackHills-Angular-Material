@@ -1,3 +1,5 @@
+import { Address } from './address';
+
 export class BHUser {
   static FRAUD_CIS_PERSON_TYPE = 'F';
   static DECEASED_CIS_PERSON_TYPE = 'D';
@@ -47,6 +49,7 @@ export class BHUser {
 
   relationshipType: string;
   email: string;
+
   // didn't see a definition for this
-  // Address previousAddress;
+  previousAddress: Address;
 }

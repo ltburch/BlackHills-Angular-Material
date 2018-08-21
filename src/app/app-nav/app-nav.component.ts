@@ -16,7 +16,7 @@ export class AppNavComponent {
   userDetails: UserDetails = null;
   public isSmallScreen;
 
-  //isActionSpecified: boolean = true;
+  // isActionSpecified: boolean = true;
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
