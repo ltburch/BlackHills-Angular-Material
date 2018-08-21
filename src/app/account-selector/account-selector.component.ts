@@ -39,8 +39,8 @@ export class AccountSelectorComponent implements OnInit {
         startWith(''),
         map(value => this._filter(value))
       );
-      this.entireXService.getAccountInfo(12345).subscribe(this.gotAccountInfo.bind(this));
-      this.entireXService.getAccountPremiseInfo(12345).subscribe(this.gotAccountPremiseInfo.bind(this));
+      this.entireXService.getAccountInfo('12345').subscribe(this.gotAccountInfo.bind(this));
+      this.entireXService.getAccountPremiseInfo('12345').subscribe(this.gotAccountPremiseInfo.bind(this));
 
 
   }

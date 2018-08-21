@@ -61,13 +61,13 @@ export class EntireXService {
   }';
 
 
-  public getAccountInfo(accountId: number): Observable<AccountInfo> {
+  public getAccountInfo(accountId: string): Observable<AccountInfo> {
     const rv = plainToClass(AccountInfo, JSON.parse(this.dummyAccountInfo) as AccountInfo);
     return of( rv ) ;
 
   }
 
-  public getAccountPremiseInfo(accountId: number): Observable<AccountPremiseInfo> {
+  public getAccountPremiseInfo(accountId: string): Observable<AccountPremiseInfo> {
     const rv = plainToClass(AccountPremiseInfo, JSON.parse(this.dummyPremiseInfo) as AccountPremiseInfo);
     return of( rv ) ;
 
