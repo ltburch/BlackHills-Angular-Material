@@ -32,14 +32,10 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
 
     setTimeout(() => {
-<<<<<<< HEAD
-      this.secondaryNav.hide(); //hide secondary navigation on this page.
-      this.menu.show(); //show hamburger menu
-=======
+
       this.secondaryNav.hide(); // hide secondary navigation on this page.
       this.menu.show(); // show hamburger menu
 
->>>>>>> ef715d249bcfa48a9dcf6e2cf43d45d3054bf2f0
     });
   }
 

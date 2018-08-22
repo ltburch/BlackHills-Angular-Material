@@ -6,14 +6,10 @@ import { UserDetailsService } from '../services/user-details.service';
 import { NavbarService } from '../services/navbar.service';
 import { MenuService } from '../services/navbar.service';
 import { BHUser } from '../models/bh-user';
-<<<<<<< HEAD
 import { ViewChild } from '@angular/core'
-
-=======
 import { AccountPremiseInfo } from '../models/account-premise-info';
 import { Global } from '../util/global';
 import { Logger } from '../util/logger.service';
->>>>>>> ef715d249bcfa48a9dcf6e2cf43d45d3054bf2f0
 
 @Component({
   selector: 'app-nav',
