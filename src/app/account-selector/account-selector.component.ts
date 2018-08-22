@@ -61,6 +61,7 @@ export class AccountSelectorComponent implements OnInit {
 
    private gotAccountInfo(accountInfo: AccountInfo) {
     this.accountInfo = accountInfo;
+    console.log(this.accountInfo);
 
   }
 

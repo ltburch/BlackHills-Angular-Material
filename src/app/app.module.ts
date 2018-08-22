@@ -79,11 +79,8 @@ import {PastDueDatePipe} from './pipes/past-due-date.pipe';
     EntireXService,
     AnalyticsService,
     NavbarService,
-<<<<<<< HEAD
-    MenuService
-=======
+    MenuService,
     BHUserResolve
->>>>>>> c226be1ff34894e3972f29b3d5ec41234c7a8ac4
   ],
   bootstrap: [AppComponent]
   // entryComponents: [AccountSelectorComponent]
