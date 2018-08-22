@@ -30,6 +30,7 @@ export class AppNavComponent implements DoCheck  {
     );
 
 
+
   @ViewChild('drawer') drawer:any;
   toggleSideNav()
     {
@@ -39,8 +40,9 @@ export class AppNavComponent implements DoCheck  {
       else {
         this.drawer.open();
       }
-
     }
+
+
 
   constructor(
     private breakpointObserver: BreakpointObserver,
@@ -50,6 +52,20 @@ export class AppNavComponent implements DoCheck  {
     private logger: Logger
   ) {
 
+  }
+
+  ngOnInit() {
+    this.breakpointObserver
+      .observe(['(min-width: 960px)'])
+      .subscribe((state: BreakpointState) => {
+        if (state.matches) {
+          console.log('Viewport is 500px or over!');
+          this.isSmallScreen = false;
+        } else {
+          console.log('Viewport is getting smaller!');
+          this.isSmallScreen = true;
+        }
+      });
   }
 
   ngDoCheck() {

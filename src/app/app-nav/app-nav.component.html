@@ -1,6 +1,6 @@
 <mat-sidenav-container class="sidenav-container">
   <!-- <mat-sidenav #drawer class="sidenav" fixedInViewport="true" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'"> -->
-  <mat-sidenav #drawer class="sidenav" fixedInViewport="true" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) ? 'false' : 'true'" *ngIf="menu.visible">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport="true" [mode]="(isSmallScreen) ? 'over' : 'side'" [opened]="(isSmallScreen) ? 'false' : 'true'" *ngIf="menu.visible">
     <mat-card *ngIf="bhUser" class="user__details">
       <b class="user__details--name">{{bhUser.firstName}} {{bhUser.middleName}} {{bhUser.lastName}}</b>
       <div class="user__details--address" *ngIf="accountPremise">
@@ -38,7 +38,7 @@
 <mat-toolbar *ngIf="!nav.visible" color="primary" class="header-container header-container__main">
   <!-- <button type="button" class="header--menu__icon" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async"> -->
   <span *ngIf="menu.visible">
-  <button type="button" class="header--menu__icon" aria-label="Toggle sidenav" mat-icon-button (click)="toggleSideNav()" *ngIf="isHandset$ | async">
+  <button type="button" class="header--menu__icon" aria-label="Toggle sidenav" mat-icon-button (click)="toggleSideNav()" *ngIf="isSmallScreen">
       <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
     </button>
     </span>
