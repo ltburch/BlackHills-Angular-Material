@@ -3,13 +3,13 @@
   <mat-sidenav #drawer class="sidenav" fixedInViewport="true" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) ? 'false' : 'true'" *ngIf="menu.visible">
     <mat-card *ngIf="bhUser" class="user__details">
       <b class="user__details--name">{{bhUser.firstName}} {{bhUser.middleName}} {{bhUser.lastName}}</b>
-      <!-- <div class="user__details--address">
-        <div class="address--line1">{{userDetails.address}}</div>
-        <div class="address--line2">{{ userDetails.city }} {{ userDetails.state }} {{ userDetails.zipCode }}</div>
+      <div class="user__details--address" *ngIf="accountPremise">
+        <div class="address--line1">{{accountPremise.premiseInfo[0].address2}}</div>
+        <div class="address--line2">{{accountPremise.premiseInfo[0].address3}}</div>
       </div>
       <div class="user__details--change">
         <a class="tab address-changelink" href="#">Change</a>
-      </div> -->
+      </div>
     </mat-card>
     <mat-nav-list class="main-nav--items">
       <a mat-list-item routerLink="/dashboard" routerLinkActive="active-link" (click)="toggleSideNav()">Dashboard</a>

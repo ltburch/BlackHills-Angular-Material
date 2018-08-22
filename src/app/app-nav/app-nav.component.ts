@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, DoCheck} from '@angular/core';
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -6,17 +6,25 @@ import { UserDetailsService } from '../services/user-details.service';
 import { NavbarService } from '../services/navbar.service';
 import { MenuService } from '../services/navbar.service';
 import { BHUser } from '../models/bh-user';
+<<<<<<< HEAD
 import { ViewChild } from '@angular/core'
 
+=======
+import { AccountPremiseInfo } from '../models/account-premise-info';
+import { Global } from '../util/global';
+import { Logger } from '../util/logger.service';
+>>>>>>> ef715d249bcfa48a9dcf6e2cf43d45d3054bf2f0
 
 @Component({
   selector: 'app-nav',
   templateUrl: './app-nav.component.html',
   styleUrls: ['./app-nav.component.css']
 })
-export class AppNavComponent {
+export class AppNavComponent implements DoCheck  {
 
   bhUser: BHUser = null;
+  accountPremise: AccountPremiseInfo;
+
   public isSmallScreen;
 
   // isActionSpecified: boolean = true;
@@ -42,17 +50,17 @@ export class AppNavComponent {
     private breakpointObserver: BreakpointObserver,
     private userDetailsService: UserDetailsService,
     public nav: NavbarService,
-    public menu: MenuService
+    public menu: MenuService,
+    private logger: Logger
   ) {
-
-    this.userDetailsService.getCurrentUser().subscribe(this.gotUserDetails.bind(this));
 
   }
 
-
-
-  gotUserDetails(bhUser: BHUser) {
-    this.bhUser = bhUser;
+  ngDoCheck() {
+    // this.logger.log('init nav');
+    // a little hacky and wasteful but very light
+    this.bhUser = Global.currentUser;
+    this.accountPremise = Global.selectedAccountPremise;
   }
 
   }
