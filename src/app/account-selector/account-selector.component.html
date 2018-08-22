@@ -27,22 +27,22 @@
       <div class="section__results--action">
         <a href="#">NEW</a>
       </div>
-      <div class="section__results--item" *ngIf="accountPremiseInfo">
-        <a routerLink="/dashboard" routerLinkActive="active-link" class="account-info">
+      <div class="section__results--item" *ngIf="(accountPremiseInfoMap.size) > 0 && (accountInfoMap.size > 0)">
+        <a *ngFor="let accountId of user.cisAccountNumbers " (click)="accountSelected(accountId)" class="account-info">
           <div class="account-info--details">
             <div class="account-info__address">
-              {{accountPremiseInfo.premiseInfo[0].address2}}
+             {{ accountPremiseInfoMap.get(accountId).premiseInfo[0].address2 }}
             </div>
             <div class="account-info__number">
-              {{accountPremiseInfo.accountId}}
+              {{ accountId }}
             </div>
           </div>
-          <div class="account-info--balance {{addPastDueClass | PastDueDate: accountInfo.daysTillDue}}" *ngIf="accountInfo">
+          <div class="account-info--balance">
             <div class="account-info__amount">
-              {{accountInfo.totalAmtDue}}
+              {{ accountInfoMap.get(accountId).totAmtDue}}
             </div>
             <div class="account-info__due">
-              {{dueDate | DueDate: accountInfo.daysTillDue}}
+              {{ accountInfoMap.get(accountId).daysTillDue }}
             </div>
           </div>
         </a>
