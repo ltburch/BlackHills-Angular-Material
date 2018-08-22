@@ -22,6 +22,8 @@ export class AccountSelectorComponent implements OnInit {
   options: string[] = ['1397 Timothy Ridge Dr.', '21353467', '24524 Florent Ave', '1105 Central Parkway'];
   filteredOptions: Observable<string[]>;
   showAutocomplete = false;
+  accountInfo: AccountInfo = null;
+  accountPremiseInfo: AccountPremiseInfo = null;
 
   constructor(
     private logger: Logger,
@@ -52,11 +54,14 @@ export class AccountSelectorComponent implements OnInit {
       this.logger.log('Global user ' + Global.currentUser.firstName);
   }
 
-  private gotAccountInfo(accountInfo: AccountInfo) {
-
+   private gotAccountInfo(accountInfo: AccountInfo) {
+    this.accountInfo = accountInfo;
+    console.log(accountInfo);
   }
 
-  private gotAccountPremiseInfo(accountPremiseInfo: AccountPremiseInfo) {
+   private gotAccountPremiseInfo(accountPremiseInfo: AccountPremiseInfo) {
+    this.accountPremiseInfo = accountPremiseInfo;
+    console.log(accountPremiseInfo);
   }
 
   private _filter(value: string): string[] {

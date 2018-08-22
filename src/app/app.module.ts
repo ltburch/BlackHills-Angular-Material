@@ -27,6 +27,9 @@ import { Logger } from './util/logger.service';
 import { BHUserResolve } from './util/user-resolve';
 import { AccountSelectorComponent } from './account-selector/account-selector.component';
 
+import {DueDatePipe} from './pipes/due-date.pipe';
+import {PastDueDatePipe} from './pipes/past-due-date.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +40,9 @@ import { AccountSelectorComponent } from './account-selector/account-selector.co
     ProfileComponent,
     LoginComponent,
     CustomerServiceComponent,
-    AccountSelectorComponent
+    AccountSelectorComponent,
+    DueDatePipe,
+    PastDueDatePipe
 
   ],
   imports: [
