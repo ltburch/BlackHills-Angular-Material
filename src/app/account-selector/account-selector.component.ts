@@ -52,16 +52,17 @@ export class AccountSelectorComponent implements OnInit {
 
 
       this.entireXService.getAccountInfo('12345').subscribe(this.gotAccountInfo.bind(this));
+      this.entireXService.getAccountPremiseInfo('12345').subscribe(this.gotAccountPremiseInfo.bind(this));
 
       // this.route.data.subscribe((data: { user: BHUser }) => {
       //   this.logger.log('route data subscribe ' + data.user);
       // });
       this.logger.log('Global user ' + Global.currentUser.firstName);
+      //this.logger.log('Global Account ' + Global.currentAccount);
   }
 
    private gotAccountInfo(accountInfo: AccountInfo) {
     this.accountInfo = accountInfo;
-    console.log(this.accountInfo);
 
   }
 
