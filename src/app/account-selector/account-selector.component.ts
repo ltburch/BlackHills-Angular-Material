@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
@@ -8,6 +9,9 @@ import { EntireXService } from '../services/entirex-service';
 import { AccountInfo } from '../models/account-info';
 import { AccountPremiseInfo } from '../models/account-premise-info';
 import { Logger } from '../util/logger.service';
+import { BHUserResolve } from '../util/user-resolve';
+import { BHUser } from '../models/bh-user';
+import { Global } from '../util/global';
 
 @Component({
   selector: 'app-account-selector',
@@ -27,6 +31,8 @@ export class AccountSelectorComponent implements OnInit {
     private logger: Logger,
     public secondaryNav: NavbarService,
     public menu: MenuService,
+    private userResolve: BHUserResolve,
+    private route: ActivatedRoute,
     private entireXService: EntireXService ) {
 
    }
@@ -47,8 +53,10 @@ export class AccountSelectorComponent implements OnInit {
 
       this.entireXService.getAccountInfo('12345').subscribe(this.gotAccountInfo.bind(this));
 
-      this.entireXService.getAccountPremiseInfo('12345').subscribe(this.gotAccountPremiseInfo.bind(this));
-
+      // this.route.data.subscribe((data: { user: BHUser }) => {
+      //   this.logger.log('route data subscribe ' + data.user);
+      // });
+      this.logger.log('Global user ' + Global.currentUser.firstName);
   }
 
    private gotAccountInfo(accountInfo: AccountInfo) {

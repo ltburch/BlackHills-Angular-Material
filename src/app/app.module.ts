@@ -25,6 +25,7 @@ import { AnalyticsService } from './util/analytics.service';
 import { AuthGuard } from './auth/auth.guard';
 import { AuthService } from './auth/auth.service';
 import { Logger } from './util/logger.service';
+import { BHUserResolve } from './util/user-resolve';
 import { AccountSelectorComponent } from './account-selector/account-selector.component';
 
 import {DueDatePipe} from './pipes/due-date.pipe';
@@ -78,7 +79,11 @@ import {PastDueDatePipe} from './pipes/past-due-date.pipe';
     EntireXService,
     AnalyticsService,
     NavbarService,
+<<<<<<< HEAD
     MenuService
+=======
+    BHUserResolve
+>>>>>>> c226be1ff34894e3972f29b3d5ec41234c7a8ac4
   ],
   bootstrap: [AppComponent]
   // entryComponents: [AccountSelectorComponent]
