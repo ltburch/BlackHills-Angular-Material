@@ -18,3 +18,19 @@ showSecondaryNav() {
 
 
 }
+
+export class MenuService {
+  visible: boolean;
+
+  constructor() { this.visible = true; }
+
+  hide() { this.visible = false; }
+
+  show() { this.visible = true; }
+
+showMenu() {
+  this.show();
+}
+
+
+}

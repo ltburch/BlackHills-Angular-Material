@@ -3,6 +3,7 @@ import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms'
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 import { NavbarService } from '../services/navbar.service';
+import { MenuService } from '../services/navbar.service';
 import { EntireXService } from '../services/entirex-service';
 import { AccountInfo } from '../models/account-info';
 import { AccountPremiseInfo } from '../models/account-premise-info';
@@ -21,9 +22,11 @@ export class AccountSelectorComponent implements OnInit {
   accountInfo: AccountInfo = null;
   accountPremiseInfo: AccountPremiseInfo = null;
 
+
   constructor(
     private logger: Logger,
     public secondaryNav: NavbarService,
+    public menu: MenuService,
     private entireXService: EntireXService ) {
 
    }
@@ -31,7 +34,8 @@ export class AccountSelectorComponent implements OnInit {
   ngOnInit() {
 
     setTimeout(() => {
-      // this.secondaryNav.show(); //show secondary navigation on this page.
+      //this.secondaryNav.show(); //show secondary navigation on this page.
+      this.menu.hide(); //hide hamburger menu in this page.
     });
 
     this.filteredOptions = this.searchControl.valueChanges
@@ -39,20 +43,22 @@ export class AccountSelectorComponent implements OnInit {
         startWith(''),
         map(value => this._filter(value))
       );
-      this.entireXService.getAccountInfo('12345').subscribe(this.gotAccountInfo.bind(this));
-      this.entireXService.getAccountPremiseInfo('12345').subscribe(this.gotAccountPremiseInfo.bind(this));
 
+
+      this.entireXService.getAccountInfo('12345').subscribe(this.gotAccountInfo.bind(this));
+
+      this.entireXService.getAccountPremiseInfo('12345').subscribe(this.gotAccountPremiseInfo.bind(this));
 
   }
 
    private gotAccountInfo(accountInfo: AccountInfo) {
     this.accountInfo = accountInfo;
-    console.log(accountInfo);
+
   }
 
-   private gotAccountPremiseInfo(accountPremiseInfo: AccountPremiseInfo) {
+
+   public gotAccountPremiseInfo(accountPremiseInfo: AccountPremiseInfo) {
     this.accountPremiseInfo = accountPremiseInfo;
-    console.log(accountPremiseInfo);
   }
 
   private _filter(value: string): string[] {

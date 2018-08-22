@@ -20,6 +20,7 @@ import { CustomerServiceComponent  } from './customer-service/customer-service.c
 import { UserDetailsService } from './services/user-details.service';
 import { EntireXService } from './services/entirex-service';
 import { NavbarService } from './services/navbar.service';
+import { MenuService } from './services/navbar.service';
 import { AnalyticsService } from './util/analytics.service';
 import { AuthGuard } from './auth/auth.guard';
 import { AuthService } from './auth/auth.service';
@@ -76,7 +77,8 @@ import {PastDueDatePipe} from './pipes/past-due-date.pipe';
     UserDetailsService,
     EntireXService,
     AnalyticsService,
-    NavbarService
+    NavbarService,
+    MenuService
   ],
   bootstrap: [AppComponent]
   // entryComponents: [AccountSelectorComponent]

@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { UserDetailsService } from '../services/user-details.service';
 import { NavbarService } from '../services/navbar.service';
+import { MenuService } from '../services/navbar.service';
 import { BHUser } from '../models/bh-user';
 
 @Component({
@@ -26,7 +27,8 @@ export class AppNavComponent {
   constructor(
     private breakpointObserver: BreakpointObserver,
     private userDetailsService: UserDetailsService,
-    public nav: NavbarService
+    public nav: NavbarService,
+    public menu: MenuService
   ) {
 
     this.userDetailsService.getCurrentUser().subscribe(this.gotUserDetails.bind(this));

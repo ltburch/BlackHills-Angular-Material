@@ -3,6 +3,7 @@ import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms'
 import {MatSnackBar} from '@angular/material';
 //NavbarService is used to show/hide the secondary navigation
 import { NavbarService } from '../services/navbar.service';
+import { MenuService } from '../services/navbar.service';
 // import {MatDialog, MatDialogRef} from '@angular/material';
 // import { AccountSelectorComponent } from '../account-selector/account-selector.component';
 
@@ -15,12 +16,13 @@ import { NavbarService } from '../services/navbar.service';
 export class DashboardComponent implements OnInit {
 
   // constructor(public snackBar: MatSnackBar, private dialog: MatDialog) {}
-  constructor(public snackBar: MatSnackBar, public secondaryNav: NavbarService) {}
+  constructor(public snackBar: MatSnackBar, public secondaryNav: NavbarService, public menu: MenuService) {}
 
   ngOnInit() {
 
     setTimeout(() => {
       this.secondaryNav.hide(); //hide secondary navigation on this page.
+      this.menu.show(); //show hamburger menu
     });
 
   }

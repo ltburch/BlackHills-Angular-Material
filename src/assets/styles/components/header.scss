@@ -46,6 +46,7 @@
       &.header-container__main.mat-toolbar.mat-primary {
         height: 125px;
         background-size: 288px 40px;
+        z-index: 9999;
       }
     }
 }

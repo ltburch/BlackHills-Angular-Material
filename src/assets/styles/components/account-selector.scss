@@ -109,11 +109,6 @@
       padding-left: 15px;
     }
 
-    .section__search {
-      float: left;
-      width: 300px;
-    }
-
     .section__results {
       clear: both;
     }
@@ -137,4 +132,11 @@
       padding-right: 15px;
     }
   }
+}
+
+@media (min-width: 600px) {
+.account-selector .section__search {
+  float: left;
+  width: 300px;
+}
 }
