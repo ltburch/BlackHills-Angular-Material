@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {MatSnackBar} from '@angular/material';
-//NavbarService is used to show/hide the secondary navigation
+// NavbarService is used to show/hide the secondary navigation
 import { NavbarService } from '../services/navbar.service';
+import { BHUserResolve } from '../util/user-resolve';
+import { Logger } from '../util/logger.service';
 // import {MatDialog, MatDialogRef} from '@angular/material';
 // import { AccountSelectorComponent } from '../account-selector/account-selector.component';
 
@@ -13,24 +15,28 @@ import { NavbarService } from '../services/navbar.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+  email = new FormControl('', [Validators.required, Validators.email]);
+  hide = true; // property for form element
+
 
   // constructor(public snackBar: MatSnackBar, private dialog: MatDialog) {}
-  constructor(public snackBar: MatSnackBar, public secondaryNav: NavbarService) {}
+  constructor(
+    public snackBar: MatSnackBar,
+    public secondaryNav: NavbarService,
+    private userResolve: BHUserResolve,
+    private logger: Logger) {}
 
   ngOnInit() {
 
     setTimeout(() => {
-      this.secondaryNav.hide(); //hide secondary navigation on this page.
+      this.secondaryNav.hide(); // hide secondary navigation on this page.
     });
 
   }
-  email = new FormControl('', [Validators.required, Validators.email]);
-  hide = true; //property for form element
 
 
-
-  //for account selector dialog
-  //accountSelectorDialogRef: MatDialogRef<AccountSelectorComponent>;
+  // for account selector dialog
+  // accountSelectorDialogRef: MatDialogRef<AccountSelectorComponent>;
 
  //  openAccountSelectorDialog() {
  //   this.accountSelectorDialogRef = this.dialog.open(AccountSelectorComponent, {

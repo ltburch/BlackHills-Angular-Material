@@ -3,6 +3,7 @@ import { plainToClass } from 'class-transformer';
 import { AccountInfo } from '../models/account-info';
 import { Address } from '../models/address';
 import { AccountPremiseInfo } from '../models/account-premise-info';
+import { delay } from 'rxjs/internal/operators';
 
 export class EntireXService {
   dummyAccountInfo = '{ \
@@ -63,13 +64,13 @@ export class EntireXService {
 
   public getAccountInfo(accountId: string): Observable<AccountInfo> {
     const rv = plainToClass(AccountInfo, JSON.parse(this.dummyAccountInfo) as AccountInfo);
-    return of( rv ) ;
+    return of( rv ).pipe( delay(1000) ) ;
 
   }
 
   public getAccountPremiseInfo(accountId: string): Observable<AccountPremiseInfo> {
     const rv = plainToClass(AccountPremiseInfo, JSON.parse(this.dummyPremiseInfo) as AccountPremiseInfo);
-    return of( rv ) ;
+    return of( rv ).pipe( delay(1000) );
 
   }
 

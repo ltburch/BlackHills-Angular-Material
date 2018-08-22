@@ -24,6 +24,7 @@ import { AnalyticsService } from './util/analytics.service';
 import { AuthGuard } from './auth/auth.guard';
 import { AuthService } from './auth/auth.service';
 import { Logger } from './util/logger.service';
+import { BHUserResolve } from './util/user-resolve';
 import { AccountSelectorComponent } from './account-selector/account-selector.component';
 
 @NgModule({
@@ -71,7 +72,8 @@ import { AccountSelectorComponent } from './account-selector/account-selector.co
     UserDetailsService,
     EntireXService,
     AnalyticsService,
-    NavbarService
+    NavbarService,
+    BHUserResolve
   ],
   bootstrap: [AppComponent]
   // entryComponents: [AccountSelectorComponent]

@@ -1,6 +1,7 @@
 import { Observable, of } from 'rxjs';
 import { plainToClass } from 'class-transformer';
 import { BHUser } from '../models/bh-user';
+import { delay } from 'rxjs/internal/operators';
 import { Logger } from '../util/logger.service';
 
 export class UserDetailsService {
@@ -36,6 +37,8 @@ constructor() {
   getCurrentUser(): Observable<BHUser> {
     console.log(this.dummyValue);
     const rv = plainToClass(BHUser, JSON.parse(this.dummyValue) as BHUser);
-    return of( rv ) ;
+    const orv: Observable<BHUser>  = of(rv);
+    orv.pipe( delay(1000) );
+    return orv;
   }
 }
