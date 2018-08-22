@@ -22,7 +22,7 @@ showSecondaryNav() {
 export class MenuService {
   visible: boolean;
 
-  constructor() { this.visible = true; }
+  constructor() { this.visible = false; }
 
   hide() { this.visible = false; }
 

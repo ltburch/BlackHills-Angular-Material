@@ -6,6 +6,8 @@ import { UserDetailsService } from '../services/user-details.service';
 import { NavbarService } from '../services/navbar.service';
 import { MenuService } from '../services/navbar.service';
 import { BHUser } from '../models/bh-user';
+import { ViewChild } from '@angular/core'
+
 
 @Component({
   selector: 'app-nav',
@@ -18,11 +20,23 @@ export class AppNavComponent {
   public isSmallScreen;
 
   // isActionSpecified: boolean = true;
-
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches)
     );
+
+
+  @ViewChild('drawer') drawer:any;
+  toggleSideNav()
+    {
+      if(this.breakpointObserver.isMatched('(max-width: 959px)')) {
+      this.drawer.toggle();
+      }
+      else {
+        this.drawer.open();
+      }
+
+    }
 
   constructor(
     private breakpointObserver: BreakpointObserver,
