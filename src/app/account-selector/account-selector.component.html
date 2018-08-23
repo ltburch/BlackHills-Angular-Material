@@ -59,10 +59,14 @@
           <a href="#" class="account-info">
             <div class="account-info--details">
               <div class="account-info__address">
-                24245 Florent Ave
-              </div>
-              <div class="account-info__number">
-                21353467-2345
+                <span *ngIf="(accountPremiseInfoMap.get(accountId).premiseInfo.length) >= 2; else testtemplate">
+                  {{ accountPremiseInfoMap.get(accountId).premiseInfo.length }} service addresses
+                </span>
+                <ng-template #testtemplate>
+                  <span *ngFor="let address of accountPremiseInfoMap.get(accountId).premiseInfo">
+                  {{ address.address2 }}
+                  </span>
+                </ng-template>
               </div>
             </div>
             <div class="account-info--balance">
