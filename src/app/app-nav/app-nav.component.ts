@@ -6,7 +6,7 @@ import { UserDetailsService } from '../services/user-details.service';
 import { NavbarService } from '../services/navbar.service';
 import { MenuService } from '../services/navbar.service';
 import { BHUser } from '../models/bh-user';
-import { ViewChild } from '@angular/core'
+import { ViewChild } from '@angular/core';
 import { AccountPremiseInfo } from '../models/account-premise-info';
 import { Global } from '../util/global';
 import { Logger } from '../util/logger.service';
@@ -16,7 +16,7 @@ import { Logger } from '../util/logger.service';
   templateUrl: './app-nav.component.html',
   styleUrls: ['./app-nav.component.css']
 })
-export class AppNavComponent implements DoCheck  {
+export class AppNavComponent implements DoCheck, OnInit  {
 
   bhUser: BHUser = null;
   accountPremise: AccountPremiseInfo;
@@ -31,16 +31,14 @@ export class AppNavComponent implements DoCheck  {
 
 
 
-  @ViewChild('drawer') drawer:any;
-  toggleSideNav()
-    {
-      if(this.breakpointObserver.isMatched('(max-width: 959px)')) {
+  @ViewChild('drawer') drawer: any;
+  toggleSideNav() {
+    if (this.breakpointObserver.isMatched('(max-width: 959px)')) {
       this.drawer.toggle();
-      }
-      else {
+      } else {
         this.drawer.open();
       }
-    }
+   }
 
 
 
@@ -59,10 +57,10 @@ export class AppNavComponent implements DoCheck  {
       .observe(['(min-width: 960px)'])
       .subscribe((state: BreakpointState) => {
         if (state.matches) {
-          //console.log('Viewport is 500px or over!');
+          // console.log('Viewport is 500px or over!');
           this.isSmallScreen = false;
         } else {
-          //console.log('Viewport is getting smaller!');
+          // console.log('Viewport is getting smaller!');
           this.isSmallScreen = true;
         }
       });

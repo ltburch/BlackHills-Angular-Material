@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, DoCheck } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import {Observable} from 'rxjs';
-import {map, startWith} from 'rxjs/operators';
+import { Observable} from 'rxjs';
+import { map, startWith} from 'rxjs/operators';
 import { NavbarService } from '../services/navbar.service';
 import { MenuService } from '../services/navbar.service';
 import { EntireXService } from '../services/entirex-service';
@@ -20,7 +20,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
   templateUrl: './account-selector.component.html',
   styleUrls: ['./account-selector.component.scss']
 })
-export class AccountSelectorComponent implements OnInit {
+export class AccountSelectorComponent implements OnInit, DoCheck {
   searchControl = new FormControl();
   options: string[] = ['1397 Timothy Ridge Dr.', '21353467', '24524 Florent Ave', '1105 Central Parkway'];
   filteredOptions: Observable<string[]>;
@@ -44,8 +44,8 @@ export class AccountSelectorComponent implements OnInit {
   ngOnInit() {
 
     setTimeout(() => {
-      //this.secondaryNav.show(); //show secondary navigation on this page.
-      //this.menu.hide(); //hide hamburger menu in this page if there is no account selected.
+      // this.secondaryNav.show(); //show secondary navigation on this page.
+      // this.menu.hide(); //hide hamburger menu in this page if there is no account selected.
     });
 
     this.filteredOptions = this.searchControl.valueChanges
@@ -68,7 +68,7 @@ export class AccountSelectorComponent implements OnInit {
       });
 
       forkJoin(accountPremiseInfos).subscribe(this.gotAccountPremiseInfo.bind(this));
-        //console.log(accountPremiseInfos);
+      // console.log(accountPremiseInfos);
       // this.entireXService.getAccountInfo('12345').subscribe(this.gotAccountInfo.bind(this));
       // this.entireXService.getAccountPremiseInfo('12345').subscribe(this.gotAccountPremiseInfo.bind(this));
 
@@ -118,7 +118,7 @@ export class AccountSelectorComponent implements OnInit {
   ngDoCheck() {
     // this.logger.log('init nav');
     // a little hacky and wasteful but very light
-    //this.bhUser = Global.currentUser;
+    // this.bhUser = Global.currentUser;
     this.accountPremise = Global.selectedAccountPremise;
   }
 
