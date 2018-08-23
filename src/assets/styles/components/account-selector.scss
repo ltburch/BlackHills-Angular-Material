@@ -146,7 +146,8 @@
 
 @media (min-width: 600px) {
 .account-selector .section__search {
-  float: left;
+  //float: left;
   width: 300px;
+  padding-left: 0;
 }
 }
