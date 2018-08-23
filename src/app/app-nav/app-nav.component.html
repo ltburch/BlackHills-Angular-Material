@@ -11,7 +11,7 @@
 
         <!-- <div class="address--line2">{{accountPremise.premiseInfo[0].address3}}</div> -->
       </div>
-      <div class="user__details--change">
+      <div class="user__details--change" *ngIf="(bhUser.cisAccountNumbers.length) > 1">
         <a class="tab address-changelink" routerLink="/account-selector" (click)="toggleSideNav()" routerLinkActive="active-link">Change</a>
       </div>
     </mat-card>
@@ -55,7 +55,7 @@
   <button type="button" class="header--menu__icon" aria-label="Close Icon" mat-icon-button *ngIf="isHandset$ | async">
       <mat-icon aria-label="close icon">close</mat-icon>
     </button>
-  <div class="header--menu__title">YOUR ACCOUNTS</div>
+  <div class="header--menu__title"></div>
 </mat-toolbar>
 <!-- show this component when the user opens a new page-->
 <router-outlet></router-outlet>
