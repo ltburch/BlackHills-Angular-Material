@@ -13,6 +13,7 @@ import { BHUserResolve } from '../util/user-resolve';
 import { BHUser } from '../models/bh-user';
 import { Global } from '../util/global';
 import { forkJoin } from 'rxjs';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-account-selector',
@@ -21,7 +22,7 @@ import { forkJoin } from 'rxjs';
 })
 export class AccountSelectorComponent implements OnInit {
   searchControl = new FormControl();
-  options: string[];
+  options: string[] = ['1397 Timothy Ridge Dr.', '21353467', '24524 Florent Ave', '1105 Central Parkway'];
   filteredOptions: Observable<string[]>;
   showAutocomplete = false;
   user: BHUser;
@@ -43,8 +44,8 @@ export class AccountSelectorComponent implements OnInit {
   ngOnInit() {
 
     setTimeout(() => {
-      // this.secondaryNav.show(); //show secondary navigation on this page.
-      // this.menu.hide(); //hide hamburger menu in this page if there is no account selected.
+      //this.secondaryNav.show(); //show secondary navigation on this page.
+      //this.menu.hide(); //hide hamburger menu in this page if there is no account selected.
     });
 
     this.filteredOptions = this.searchControl.valueChanges
@@ -67,7 +68,7 @@ export class AccountSelectorComponent implements OnInit {
       });
 
       forkJoin(accountPremiseInfos).subscribe(this.gotAccountPremiseInfo.bind(this));
-//console.log(accountPremiseInfos);
+        //console.log(accountPremiseInfos);
       // this.entireXService.getAccountInfo('12345').subscribe(this.gotAccountInfo.bind(this));
       // this.entireXService.getAccountPremiseInfo('12345').subscribe(this.gotAccountPremiseInfo.bind(this));
 
@@ -88,6 +89,7 @@ export class AccountSelectorComponent implements OnInit {
   private gotAccountPremiseInfo(accountPremiseInfos: Array<AccountPremiseInfo>) {
     accountPremiseInfos.forEach((acct, idx) => {
       this.accountPremiseInfoMap.set(Global.currentUser.cisAccountNumbers[idx], acct);
+      console.log(acct);
     });
   }
 

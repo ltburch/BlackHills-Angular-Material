@@ -33,11 +33,12 @@
         <div class="section__results--item" *ngFor="let accountId of user.cisAccountNumbers">
           <a (click)="accountSelected(accountId)" class="account-info">
             <div class="account-info--details">
-              <div class="account-info__address">
-                {{ accountPremiseInfoMap.get(accountId).premiseInfo[0].address2 }}
-              </div>
+
               <div class="account-info__number">
                 {{ accountId }}
+              </div>
+              <div class="account-info__address">
+                {{ accountPremiseInfoMap.get(accountId).premiseInfo[0].address2 }}
               </div>
             </div>
             <div class="account-info--balance {{addPastDueClass | PastDueDate: accountInfoMap.get(accountId).daysTillDue}}">

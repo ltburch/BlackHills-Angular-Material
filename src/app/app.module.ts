@@ -9,7 +9,7 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatButtonModule, MatCardModule, MatInputModule, MatFormFieldModule,
          MatDialogModule, MatSidenavModule, MatChipsModule, MatSnackBarModule, MatExpansionModule,
          MatTabsModule, MatIconModule, MatListModule, MatTableModule, MatPaginatorModule, MatSortModule,
-         MatAutocompleteModule } from '@angular/material';
+         MatAutocompleteModule, MatProgressSpinnerModule } from '@angular/material';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { BillingComponent } from './billing/billing.component';
 import { UsageComponent } from './usage/usage.component';
@@ -69,7 +69,8 @@ import {PastDueDatePipe} from './pipes/past-due-date.pipe';
     MatSnackBarModule,
     MatChipsModule,
     MatDialogModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     Logger,
