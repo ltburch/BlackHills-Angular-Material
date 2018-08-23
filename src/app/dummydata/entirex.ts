@@ -154,7 +154,7 @@ export class EntireXDummyData {
     [ '3456789', ' { \
       "returnCode" : 0, \
       "messageCode" : 0, \
-      "numberReturned" : 1, \
+      "numberReturned" : 2, \
       "accountId" : "0003456789", \
       "lastName" : \"WHILE\", \
       "firstName" : \"CYOTE\", \
@@ -162,7 +162,13 @@ export class EntireXDummyData {
         \"address1\" : \"WHILE CYOTE\", \
         \"address2\" : \"221B BAKER ST\", \
         \"address3\" : \"BICYCLE GULCH WY 82078 2465\" \
-      }] \
+      }, \
+      { \
+        \"address1\" : \"SIRIUS BLACK\", \
+        \"address2\" : \"12 GRIMMAULD PLACE\", \
+        \"address3\" : \"SURREY WY 81235 2634\" \
+      } \
+    ] \
     }'],
 
   ]);

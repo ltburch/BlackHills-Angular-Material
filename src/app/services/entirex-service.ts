@@ -12,7 +12,6 @@ export class EntireXService {
   ) { }
 
   public getAccountInfo(accountId: string): Observable<AccountInfo> {
-    console.log(accountId + ' - ' + EntireXDummyData.dummyAccountInfoMap.get(accountId));
     const rv = plainToClass(AccountInfo, JSON.parse(EntireXDummyData.dummyAccountInfoMap.get(accountId) ) as AccountInfo);
     return of( rv ).pipe( delay(1000) ) ;
 
