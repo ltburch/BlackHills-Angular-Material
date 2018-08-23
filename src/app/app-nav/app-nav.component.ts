@@ -6,6 +6,7 @@ import { UserDetailsService } from '../services/user-details.service';
 import { NavbarService } from '../services/navbar.service';
 import { MenuService } from '../services/navbar.service';
 import { BHUser } from '../models/bh-user';
+import { ViewChild } from '@angular/core'
 import { AccountPremiseInfo } from '../models/account-premise-info';
 import { Global } from '../util/global';
 import { Logger } from '../util/logger.service';
@@ -23,11 +24,25 @@ export class AppNavComponent implements DoCheck  {
   public isSmallScreen;
 
   // isActionSpecified: boolean = true;
-
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches)
     );
+
+
+
+  @ViewChild('drawer') drawer:any;
+  toggleSideNav()
+    {
+      if(this.breakpointObserver.isMatched('(max-width: 959px)')) {
+      this.drawer.toggle();
+      }
+      else {
+        this.drawer.open();
+      }
+    }
+
+
 
   constructor(
     private breakpointObserver: BreakpointObserver,
@@ -37,6 +52,20 @@ export class AppNavComponent implements DoCheck  {
     private logger: Logger
   ) {
 
+  }
+
+  ngOnInit() {
+    this.breakpointObserver
+      .observe(['(min-width: 960px)'])
+      .subscribe((state: BreakpointState) => {
+        if (state.matches) {
+          console.log('Viewport is 500px or over!');
+          this.isSmallScreen = false;
+        } else {
+          console.log('Viewport is getting smaller!');
+          this.isSmallScreen = true;
+        }
+      });
   }
 
   ngDoCheck() {

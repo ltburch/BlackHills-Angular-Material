@@ -32,25 +32,13 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
 
     setTimeout(() => {
+
       this.secondaryNav.hide(); // hide secondary navigation on this page.
       this.menu.show(); // show hamburger menu
 
     });
-
   }
 
-
-  // for account selector dialog
-  // accountSelectorDialogRef: MatDialogRef<AccountSelectorComponent>;
-
- //  openAccountSelectorDialog() {
- //   this.accountSelectorDialogRef = this.dialog.open(AccountSelectorComponent, {
- //     width: '100vw',
- //     maxWidth: '100vw',
- //     height: '100vh',
- //     maxHeight: '100vh'
- //   });
- // }
 
   getErrorMessage() {
     return this.email.hasError('required') ? 'You must enter a value' :

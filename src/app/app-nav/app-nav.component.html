@@ -1,7 +1,6 @@
 <mat-sidenav-container class="sidenav-container">
   <!-- <mat-sidenav #drawer class="sidenav" fixedInViewport="true" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'"> -->
-  <mat-sidenav *ngIf="menu.visible" #drawer class="sidenav" fixedInViewport="false" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) ? 'false' : 'true'">
-    <!-- <mat-toolbar color="primary"></mat-toolbar> -->
+  <mat-sidenav #drawer class="sidenav" fixedInViewport="true" [mode]="(isSmallScreen) ? 'over' : 'side'" [opened]="(isSmallScreen) ? 'false' : 'true'" *ngIf="menu.visible">
     <mat-card *ngIf="bhUser" class="user__details">
       <b class="user__details--name">{{bhUser.firstName}} {{bhUser.middleName}} {{bhUser.lastName}}</b>
       <div class="user__details--address" *ngIf="accountPremise">
@@ -13,12 +12,12 @@
       </div>
     </mat-card>
     <mat-nav-list class="main-nav--items">
-      <a mat-list-item routerLink="/dashboard" routerLinkActive="active-link" (click)="(isHandset$) ? 'drawer.toggle()' : 'drawer.open()'">Dashboard</a>
-      <a mat-list-item routerLink="/account-selector" routerLinkActive="active-link" (click)="(isHandset$) ? 'drawer.toggle()' : 'drawer.open()'">Account Selector</a>
-      <a mat-list-item routerLink="/billing" routerLinkActive="active-link" (click)="(isHandset$) ? 'drawer.toggle()' : 'drawer.open()'">Billing</a>
-      <a mat-list-item routerLink="/usage" routerLinkActive="active-link" (click)="(isHandset$) ? 'drawer.toggle()' : 'drawer.open()'">Usage</a>
-      <a mat-list-item routerLink="/profile" routerLinkActive="active-link" (click)="(isHandset$) ? 'drawer.toggle()' : 'drawer.open()'">Profile</a>
-      <a mat-list-item routerLink="/customer-service" routerLinkActive="active-link" (click)="(isHandset$) ? 'drawer.toggle()' : 'drawer.open()'">Customer Service</a>
+      <a mat-list-item routerLink="/dashboard" routerLinkActive="active-link" (click)="toggleSideNav()">Dashboard</a>
+      <a mat-list-item routerLink="/account-selector" routerLinkActive="active-link" (click)="toggleSideNav()">Account Selector</a>
+      <a mat-list-item routerLink="/billing" routerLinkActive="active-link" (click)="toggleSideNav()">Billing</a>
+      <a mat-list-item routerLink="/usage" routerLinkActive="active-link" (click)="toggleSideNav()">Usage</a>
+      <a mat-list-item routerLink="/profile" routerLinkActive="active-link" (click)="toggleSideNav()">Profile</a>
+      <a mat-list-item routerLink="/customer-service" routerLinkActive="active-link" (click)="toggleSideNav()">Customer Service</a>
     </mat-nav-list>
     <mat-nav-list class="additional-nav--items">
       <a mat-list-item>Outages</a>
@@ -30,25 +29,27 @@
   <mat-sidenav-content>
 
 
-
   </mat-sidenav-content>
+
+
+
 </mat-sidenav-container>
 <!-- show this component by default -->
 <mat-toolbar *ngIf="!nav.visible" color="primary" class="header-container header-container__main">
   <!-- <button type="button" class="header--menu__icon" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async"> -->
   <span *ngIf="menu.visible">
-  <button type="button" class="header--menu__icon" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
-    <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-  </button>
-  </span>
+  <button type="button" class="header--menu__icon" aria-label="Toggle sidenav" mat-icon-button (click)="toggleSideNav()" *ngIf="isSmallScreen">
+      <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+    </button>
+    </span>
 </mat-toolbar>
 <!-- show this component by default -->
 
 <!-- show this component when the user opens a new task page -->
 <mat-toolbar *ngIf="nav.visible" color="primary" class="header-container header-container__secondary">
   <!-- <button type="button" class="header--menu__icon" aria-label="Close Icon" mat-icon-button *ngIf="isHandset$ | async">
-    <mat-icon aria-label="close icon">close</mat-icon>
-  </button> -->
+      <mat-icon aria-label="close icon">close</mat-icon>
+    </button> -->
   <div class="header--menu__title">YOUR ACCOUNTS</div>
 </mat-toolbar>
 <!-- show this component when the user opens a new page-->
