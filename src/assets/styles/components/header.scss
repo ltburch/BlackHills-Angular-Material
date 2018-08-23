@@ -48,5 +48,9 @@
         background-size: 288px 40px;
         z-index: 9999;
       }
+      &.header-container__secondary.mat-toolbar.mat-primary {
+        height: 125px;
+        z-index: 9999;
+      }
     }
 }

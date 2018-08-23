@@ -89,7 +89,6 @@ export class AccountSelectorComponent implements OnInit, DoCheck {
   private gotAccountPremiseInfo(accountPremiseInfos: Array<AccountPremiseInfo>) {
     accountPremiseInfos.forEach((acct, idx) => {
       this.accountPremiseInfoMap.set(Global.currentUser.cisAccountNumbers[idx], acct);
-      console.log(acct);
     });
   }
 
@@ -120,6 +119,11 @@ export class AccountSelectorComponent implements OnInit, DoCheck {
     // a little hacky and wasteful but very light
     // this.bhUser = Global.currentUser;
     this.accountPremise = Global.selectedAccountPremise;
+    if(this.accountPremise) {
+    //   setTimeout(() => {
+    //   //this.secondaryNav.show();
+    // });
+    }
   }
 
 
