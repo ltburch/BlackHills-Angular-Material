@@ -68,7 +68,7 @@ export class EntireXDummyData {
       \"enfInd\": \"E\", \
       \"premiseCnt\": 1, \
       \"billCycle\": \"10\", \
-      \"daysTillDue\": 13, \
+      \"daysTillDue\": -5, \
       \"totalBudgetAmt\": 0.00, \
       \"ruleId\": \"4529371376\", \
       \"legalOperEntity\": \"CLFP\", \
