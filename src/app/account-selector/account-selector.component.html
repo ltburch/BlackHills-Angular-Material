@@ -55,7 +55,7 @@
               </div>
               <div class="account-info--balance {{addPastDueClass | PastDueDate: accountInfoMap.get(accountId).daysTillDue}}">
                 <div class="account-info__amount">
-                  {{ accountInfoMap.get(accountId).totalAmtDue }}
+                  ${{ accountInfoMap.get(accountId).totalAmtDue }}
                 </div>
                 <div class="account-info__due">
                   {{ accountInfoMap.get(accountId).daysTillDue | DueDate }}
