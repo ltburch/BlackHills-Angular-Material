@@ -43,7 +43,7 @@ export class AccountSelectorComponent implements OnInit {
 
     setTimeout(() => {
       //this.secondaryNav.show(); //show secondary navigation on this page.
-      this.menu.hide(); //hide hamburger menu in this page if there is no account selected.
+      //this.menu.hide(); //hide hamburger menu in this page if there is no account selected.
     });
 
     this.filteredOptions = this.searchControl.valueChanges
