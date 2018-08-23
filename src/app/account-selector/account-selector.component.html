@@ -1,119 +1,123 @@
+<mat-spinner style="margin:0 auto;" *ngIf="(accountPremiseInfoMap.size == 0) && (accountInfoMap.size == 0)">
+</mat-spinner>
 <section class="section no--menu account-selector">
   <div class="container-sm">
     <div class="section__heading">
       Accounts
     </div>
+    <ng-container *ngIf="(accountPremiseInfoMap.size > 0) && (accountInfoMap.size > 0)">
     <div *ngIf="(user.cisAccountNumbers.length) >= 3">
-      <div class="section__search">
-        <form class="search-form">
-          <mat-form-field>
-            <input type="text" placeholder="Search Accounts" aria-label="Number" matInput [formControl]="searchControl" [matAutocomplete]="auto" (ngModelChange)="updatedVal($event)">
-            <mat-icon matSuffix>search</mat-icon>
-            <mat-autocomplete #auto="matAutocomplete">
-              <mat-option [ngClass]="{'hide-autocomplete': !showAutocomplete}" *ngFor="let option of filteredOptions | async" [value]="option">
-                {{option}}
-              </mat-option>
-            </mat-autocomplete>
-          </mat-form-field>
-        </form>
+        <div class="section__search">
+          <form class="search-form">
+            <mat-form-field>
+              <input type="text" placeholder="Search Accounts" aria-label="Number" matInput [formControl]="searchControl" [matAutocomplete]="auto" (ngModelChange)="updatedVal($event)">
+              <mat-icon matSuffix>search</mat-icon>
+              <mat-autocomplete #auto="matAutocomplete">
+                <mat-option [ngClass]="{'hide-autocomplete': !showAutocomplete}" *ngFor="let option of user.cisAccountNumbers" [value]="option">
+                  {{ accountPremiseInfoMap.get(option).premiseInfo[0].address2 }}
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>
+          </form>
+        </div>
       </div>
-    </div>
 
-    <div class="section__results">
-      <!-- <div class="section__results--title">
-        Accounts
-      </div> -->
-      <div class="section__results--count">
-        {{user.cisAccountNumbers.length}} result(s) found
-      </div>
-      <div class="section__results--action">
-        <a href="#">NEW</a>
-      </div>
-      <div *ngIf="(accountPremiseInfoMap.size) > 0 && (accountInfoMap.size > 0)">
-        <div class="section__results--item" *ngFor="let accountId of user.cisAccountNumbers">
-          <a (click)="accountSelected(accountId)" class="account-info">
-            <div class="account-info--details">
+      <div class="section__results">
+        <!-- <div class="section__results--title">
+          Accounts
+        </div> -->
+        <div class="section__results--count">
+          {{user.cisAccountNumbers.length}} result(s) found
+        </div>
+        <div class="section__results--action">
+          <a href="#">NEW</a>
+        </div>
+        <div *ngIf="(accountPremiseInfoMap.size > 0) && (accountInfoMap.size > 0)">
+          <div class="section__results--item" *ngFor="let accountId of user.cisAccountNumbers">
+            <a (click)="accountSelected(accountId)" class="account-info">
+              <div class="account-info--details">
 
-              <div class="account-info__number">
-                {{ accountId }}
+                <div class="account-info__number">
+                  {{ accountId }}
+                </div>
+                <div class="account-info__address">
+                  {{ accountPremiseInfoMap.get(accountId).premiseInfo[0].address2 }}
+                </div>
               </div>
+              <div class="account-info--balance {{addPastDueClass | PastDueDate: accountInfoMap.get(accountId).daysTillDue}}">
+                <div class="account-info__amount">
+                  {{ accountInfoMap.get(accountId).totalAmtDue }}
+                </div>
+                <div class="account-info__due">
+                  {{ accountInfoMap.get(accountId).daysTillDue | DueDate }}
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+        <!-- <div class="section__results--item">
+          <a href="#" class="account-info">
+            <div class="account-info--details">
               <div class="account-info__address">
-                {{ accountPremiseInfoMap.get(accountId).premiseInfo[0].address2 }}
+                24245 Florent Ave
+              </div>
+              <div class="account-info__number">
+                21353467-2345
               </div>
             </div>
-            <div class="account-info--balance {{addPastDueClass | PastDueDate: accountInfoMap.get(accountId).daysTillDue}}">
+            <div class="account-info--balance">
               <div class="account-info__amount">
-                {{ accountInfoMap.get(accountId).totalAmtDue}}
+                $73.26
               </div>
               <div class="account-info__due">
-                {{ accountInfoMap.get(accountId).daysTillDue | DueDate }}
+                Due by: <span class="account-info__duedate">11/23/18</span>
               </div>
             </div>
           </a>
-        </div>
+        </div> -->
+
+        <!-- <div class="section__results--item">
+          <a href="#" class="account-info">
+            <div class="account-info--details">
+              <div class="account-info__address">
+                1105 Central Parkway
+              </div>
+              <div class="account-info__number">
+                21353467-2345
+              </div>
+            </div>
+            <div class="account-info--balance">
+              <div class="account-info__amount">
+                $44.26
+              </div>
+              <div class="account-info__due">
+                Due by: <span class="account-info__duedate">11/23/18</span>
+              </div>
+            </div>
+          </a>
+        </div> -->
+
+        <!-- <div class="section__results--item">
+          <a href="#" class="account-info">
+            <div class="account-info--details">
+              <div class="account-info__address">
+                1065 Sherman Lane
+              </div>
+              <div class="account-info__number">
+                21353467-2345
+              </div>
+            </div>
+            <div class="account-info--balance">
+              <div class="account-info__amount">
+                $0
+              </div>
+              <div class="account-info__due">
+              Due by: <span class="account-info__duedate">11/23/18</span>
+            </div>
+            </div>
+          </a>
+        </div> -->
       </div>
-      <!-- <div class="section__results--item">
-        <a href="#" class="account-info">
-          <div class="account-info--details">
-            <div class="account-info__address">
-              24245 Florent Ave
-            </div>
-            <div class="account-info__number">
-              21353467-2345
-            </div>
-          </div>
-          <div class="account-info--balance">
-            <div class="account-info__amount">
-              $73.26
-            </div>
-            <div class="account-info__due">
-              Due by: <span class="account-info__duedate">11/23/18</span>
-            </div>
-          </div>
-        </a>
-      </div> -->
-
-      <!-- <div class="section__results--item">
-        <a href="#" class="account-info">
-          <div class="account-info--details">
-            <div class="account-info__address">
-              1105 Central Parkway
-            </div>
-            <div class="account-info__number">
-              21353467-2345
-            </div>
-          </div>
-          <div class="account-info--balance">
-            <div class="account-info__amount">
-              $44.26
-            </div>
-            <div class="account-info__due">
-              Due by: <span class="account-info__duedate">11/23/18</span>
-            </div>
-          </div>
-        </a>
-      </div> -->
-
-      <!-- <div class="section__results--item">
-        <a href="#" class="account-info">
-          <div class="account-info--details">
-            <div class="account-info__address">
-              1065 Sherman Lane
-            </div>
-            <div class="account-info__number">
-              21353467-2345
-            </div>
-          </div>
-          <div class="account-info--balance">
-            <div class="account-info__amount">
-              $0
-            </div>
-            <div class="account-info__due">
-            Due by: <span class="account-info__duedate">11/23/18</span>
-          </div>
-          </div>
-        </a>
-      </div> -->
-    </div>
+    </ng-container>
   </div>
 </section>
