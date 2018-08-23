@@ -1,4 +1,4 @@
-import { Address } from './address';
+import { Premise } from './premise';
 import { Type } from 'class-transformer';
 
 export class AccountPremiseInfo {
@@ -16,8 +16,8 @@ export class AccountPremiseInfo {
 
   firstname: string;
 
-  @Type(() => Address)
-  premiseInfo: Array<Address>;
+  @Type(() => Premise)
+  premiseInfo: Array<Premise>;
 }
 
 
