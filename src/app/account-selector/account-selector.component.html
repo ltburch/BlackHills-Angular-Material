@@ -1,12 +1,14 @@
-<mat-spinner style="margin:0 auto;" *ngIf="(accountPremiseInfoMap.size == 0) && (accountInfoMap.size == 0)">
+<mat-spinner diameter="30" *ngIf="(accountPremiseInfoMap.size == 0) && (accountInfoMap.size == 0)">
 </mat-spinner>
-<section class="section no--menu account-selector">
-  <div class="container-sm">
-    <div class="section__heading">
-      Accounts
-    </div>
-    <ng-container *ngIf="(accountPremiseInfoMap.size > 0) && (accountInfoMap.size > 0)">
-    <div *ngIf="(user.cisAccountNumbers.length) >= 3">
+
+<ng-container *ngIf="(accountPremiseInfoMap.size > 0) && (accountInfoMap.size > 0)">
+
+  <section class="section account-selector" [class.no--menu]="!accountPremise">
+    <div class="container-sm">
+      <div class="section__heading">
+        Accounts
+      </div>
+      <div *ngIf="(user.cisAccountNumbers.length) >= 3">
         <div class="section__search">
           <form class="search-form">
             <mat-form-field>
@@ -41,7 +43,14 @@
                   {{ accountId }}
                 </div>
                 <div class="account-info__address">
-                  {{ accountPremiseInfoMap.get(accountId).premiseInfo[0].address2 }}
+                  <span *ngIf="(accountPremiseInfoMap.get(accountId).premiseInfo.length) >= 2; else testtemplate">
+                    {{ accountPremiseInfoMap.get(accountId).premiseInfo.length }} service addresses
+                  </span>
+                  <ng-template #testtemplate>
+                    <span *ngFor="let address of accountPremiseInfoMap.get(accountId).premiseInfo">
+                    {{ address.address2 }}
+                    </span>
+                  </ng-template>
                 </div>
               </div>
               <div class="account-info--balance {{addPastDueClass | PastDueDate: accountInfoMap.get(accountId).daysTillDue}}">
@@ -122,6 +131,7 @@
           </a>
         </div> -->
       </div>
-    </ng-container>
-  </div>
-</section>
+
+    </div>
+  </section>
+</ng-container>

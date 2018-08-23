@@ -48,6 +48,7 @@
     font-size: 15px;
     font-weight: lighter;
     float: left;
+    text-transform: capitalize;
   }
 
   .user__details--change {
@@ -61,6 +62,8 @@
     text-decoration: none;
   }
 }
+
+
 
 .main-nav--items {
   &.mat-nav-list {

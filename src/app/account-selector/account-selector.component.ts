@@ -119,11 +119,11 @@ export class AccountSelectorComponent implements OnInit, DoCheck {
     // a little hacky and wasteful but very light
     // this.bhUser = Global.currentUser;
     this.accountPremise = Global.selectedAccountPremise;
-    if(this.accountPremise) {
+  //  if(this.accountPremise) {
     //   setTimeout(() => {
     //   //this.secondaryNav.show();
     // });
-    }
+  //  }
   }
 
 
