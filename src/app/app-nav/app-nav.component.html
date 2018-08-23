@@ -4,11 +4,11 @@
     <mat-card *ngIf="bhUser" class="user__details">
       <b class="user__details--name">{{bhUser.firstName}} {{bhUser.middleName}} {{bhUser.lastName}}</b>
       <div class="user__details--address" *ngIf="accountPremise">
-
-        <div class="address--line1">{{accountPremise.premiseInfo[0].address2}}</div>
         <div class="account--number">
           {{accountPremise.accountId}}
         </div>
+        <div class="address--line1">{{accountPremise.premiseInfo[0].address2}}</div>
+
         <!-- <div class="address--line2">{{accountPremise.premiseInfo[0].address3}}</div> -->
       </div>
       <div class="user__details--change">

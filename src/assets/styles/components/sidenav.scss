@@ -46,9 +46,13 @@
 
   .user__details--address {
     font-size: 15px;
-    font-weight: lighter;
+    //font-weight: lighter;
     float: left;
     text-transform: capitalize;
+
+    .address--line1 {
+      font-weight: lighter;
+    }
   }
 
   .user__details--change {
