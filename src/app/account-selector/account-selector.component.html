@@ -38,7 +38,14 @@
                 {{ accountId }}
               </div>
               <div class="account-info__address">
-                {{ accountPremiseInfoMap.get(accountId).premiseInfo[0].address2 }}
+                <span *ngIf="(accountPremiseInfoMap.get(accountId).premiseInfo.length) >= 2; else testtemplate">
+                  {{ accountPremiseInfoMap.get(accountId).premiseInfo.length }} service addresses
+                </span>
+                <ng-template #testtemplate>
+                  <span *ngFor="let address of accountPremiseInfoMap.get(accountId).premiseInfo">
+                  {{ address.address2 }}
+                  </span>
+                </ng-template>
               </div>
             </div>
             <div class="account-info--balance {{addPastDueClass | PastDueDate: accountInfoMap.get(accountId).daysTillDue}}">
