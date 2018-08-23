@@ -21,12 +21,13 @@ import { forkJoin } from 'rxjs';
 })
 export class AccountSelectorComponent implements OnInit {
   searchControl = new FormControl();
-  options: string[] = ['1397 Timothy Ridge Dr.', '21353467', '24524 Florent Ave', '1105 Central Parkway'];
+  options: string[];
   filteredOptions: Observable<string[]>;
   showAutocomplete = false;
   user: BHUser;
   accountInfoMap: Map<string, AccountInfo> = new Map<string, AccountInfo>();
   accountPremiseInfoMap: Map<string, AccountPremiseInfo> = new Map<string, AccountPremiseInfo>();
+  accountPremise: AccountPremiseInfo;
 
   constructor(
     private logger: Logger,
@@ -64,8 +65,9 @@ export class AccountSelectorComponent implements OnInit {
       Global.currentUser.cisAccountNumbers.forEach(acct => {
         accountPremiseInfos.push(this.entireXService.getAccountPremiseInfo(acct));
       });
-      forkJoin(accountPremiseInfos).subscribe(this.gotAccountPremiseInfo.bind(this));
 
+      forkJoin(accountPremiseInfos).subscribe(this.gotAccountPremiseInfo.bind(this));
+//console.log(accountPremiseInfos);
       // this.entireXService.getAccountInfo('12345').subscribe(this.gotAccountInfo.bind(this));
       // this.entireXService.getAccountPremiseInfo('12345').subscribe(this.gotAccountPremiseInfo.bind(this));
 
@@ -109,6 +111,13 @@ export class AccountSelectorComponent implements OnInit {
     } else {
        this.showAutocomplete = false;
     }
+  }
+
+  ngDoCheck() {
+    // this.logger.log('init nav');
+    // a little hacky and wasteful but very light
+    //this.bhUser = Global.currentUser;
+    this.accountPremise = Global.selectedAccountPremise;
   }
 
 

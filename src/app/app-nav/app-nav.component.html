@@ -8,16 +8,16 @@
         <div class="address--line2">{{accountPremise.premiseInfo[0].address3}}</div>
       </div>
       <div class="user__details--change">
-        <a class="tab address-changelink" href="#">Change</a>
+        <a class="tab address-changelink" routerLink="/account-selector" (click)="toggleSideNav()" routerLinkActive="active-link">Change</a>
       </div>
     </mat-card>
     <mat-nav-list class="main-nav--items">
       <a mat-list-item routerLink="/dashboard" routerLinkActive="active-link" (click)="toggleSideNav()">Dashboard</a>
-      <a mat-list-item routerLink="/account-selector" routerLinkActive="active-link" (click)="toggleSideNav()">Account Selector</a>
+      <!-- <a mat-list-item routerLink="/account-selector" routerLinkActive="active-link" (click)="toggleSideNav()">Account Selector</a> -->
       <a mat-list-item routerLink="/billing" routerLinkActive="active-link" (click)="toggleSideNav()">Billing</a>
       <a mat-list-item routerLink="/usage" routerLinkActive="active-link" (click)="toggleSideNav()">Usage</a>
       <a mat-list-item routerLink="/profile" routerLinkActive="active-link" (click)="toggleSideNav()">Profile</a>
-      <a mat-list-item routerLink="/customer-service" routerLinkActive="active-link" (click)="toggleSideNav()">Customer Service</a>
+      <!-- <a mat-list-item routerLink="/customer-service" routerLinkActive="active-link" (click)="toggleSideNav()">Customer Service</a> -->
     </mat-nav-list>
     <mat-nav-list class="additional-nav--items">
       <a mat-list-item>Outages</a>
@@ -37,7 +37,7 @@
 <!-- show this component by default -->
 <mat-toolbar *ngIf="!nav.visible" color="primary" class="header-container header-container__main">
   <!-- <button type="button" class="header--menu__icon" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async"> -->
-  <span *ngIf="menu.visible">
+  <span *ngIf="accountPremise">
   <button type="button" class="header--menu__icon" aria-label="Toggle sidenav" mat-icon-button (click)="toggleSideNav()" *ngIf="isSmallScreen">
       <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
     </button>

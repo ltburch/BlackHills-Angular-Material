@@ -59,10 +59,10 @@ export class AppNavComponent implements DoCheck  {
       .observe(['(min-width: 960px)'])
       .subscribe((state: BreakpointState) => {
         if (state.matches) {
-          console.log('Viewport is 500px or over!');
+          //console.log('Viewport is 500px or over!');
           this.isSmallScreen = false;
         } else {
-          console.log('Viewport is getting smaller!');
+          //console.log('Viewport is getting smaller!');
           this.isSmallScreen = true;
         }
       });
