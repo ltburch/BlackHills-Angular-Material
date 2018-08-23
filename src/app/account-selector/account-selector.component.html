@@ -16,7 +16,7 @@
               <mat-icon matSuffix>search</mat-icon>
               <mat-autocomplete #auto="matAutocomplete">
                 <mat-option [ngClass]="{'hide-autocomplete': !showAutocomplete}" *ngFor="let option of user.cisAccountNumbers" [value]="option">
-                  {{ accountPremiseInfoMap.get(option).premiseInfo[0].address2 }}
+                  {{ accountPremiseInfoMap.get(option).premiseInfo[0].address2 }} {{ accountPremiseInfoMap.get(option).premiseInfo[0].address3 }}
                 </mat-option>
               </mat-autocomplete>
             </mat-form-field>
@@ -48,7 +48,8 @@
                   </span>
                   <ng-template #testtemplate>
                     <span *ngFor="let address of accountPremiseInfoMap.get(accountId).premiseInfo">
-                    {{ address.address2 }}
+                    {{ address.address2 }} <br />
+                    {{ address.address3 }}
                     </span>
                   </ng-template>
                 </div>
