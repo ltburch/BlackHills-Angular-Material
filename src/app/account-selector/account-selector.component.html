@@ -34,7 +34,7 @@
         <div class="section__results--action">
           <a href="#">NEW</a>
         </div>
-        <div *ngIf="(accountPremiseInfoMap.size > 0) && (accountInfoMap.size > 0)">
+        <ng-container *ngIf="(accountPremiseInfoMap.size > 0) && (accountInfoMap.size > 0)">
           <div class="section__results--item" *ngFor="let accountId of user.cisAccountNumbers">
             <a (click)="accountSelected(accountId)" class="account-info">
               <div class="account-info--details">
@@ -43,10 +43,10 @@
                   {{ accountId }}
                 </div>
                 <div class="account-info__address">
-                  <span *ngIf="(accountPremiseInfoMap.get(accountId).premiseInfo.length) >= 2; else testtemplate">
+                  <span *ngIf="(accountPremiseInfoMap.get(accountId).premiseInfo.length) >= 2; else singleAddressTemplate">
                     {{ accountPremiseInfoMap.get(accountId).premiseInfo.length }} service addresses
                   </span>
-                  <ng-template #testtemplate>
+                  <ng-template #singleAddressTemplate>
                     <span *ngFor="let address of accountPremiseInfoMap.get(accountId).premiseInfo">
                     {{ address.address2 }} <br />
                     {{ address.address3 }}
@@ -64,7 +64,7 @@
               </div>
             </a>
           </div>
-        </div>
+        </ng-container>
         <!-- <div class="section__results--item">
           <a href="#" class="account-info">
             <div class="account-info--details">
