@@ -3,51 +3,55 @@
     <div class="section__heading">
       Accounts
     </div>
-    <div class="section__search">
-      <form class="search-form">
-        <mat-form-field>
-          <input type="text" placeholder="Search Accounts" aria-label="Number" matInput [formControl]="searchControl" [matAutocomplete]="auto" (ngModelChange)="updatedVal($event)">
-          <mat-icon matSuffix>search</mat-icon>
-          <mat-autocomplete #auto="matAutocomplete">
-            <mat-option [ngClass]="{'hide-autocomplete': !showAutocomplete}" *ngFor="let option of filteredOptions | async" [value]="option">
-              {{option}}
-            </mat-option>
-          </mat-autocomplete>
-        </mat-form-field>
-      </form>
-
+    <div>{{user.cisAccountNumbers.accountiD}}</div>
+    <div *ngIf="(user.cisAccountNumbers.length) >= 3">
+      <div class="section__search">
+        <form class="search-form">
+          <mat-form-field>
+            <input type="text" placeholder="Search Accounts" aria-label="Number" matInput [formControl]="searchControl" [matAutocomplete]="auto" (ngModelChange)="updatedVal($event)">
+            <mat-icon matSuffix>search</mat-icon>
+            <mat-autocomplete #auto="matAutocomplete">
+              <mat-option [ngClass]="{'hide-autocomplete': !showAutocomplete}" *ngFor="let option of filteredOptions | async" [value]="option">
+                {{option}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+        </form>
+      </div>
     </div>
+
     <div class="section__results">
       <!-- <div class="section__results--title">
         Accounts
       </div> -->
       <div class="section__results--count">
-        10 results found
+        {{user.cisAccountNumbers.length}} result(s) found
       </div>
       <div class="section__results--action">
         <a href="#">NEW</a>
       </div>
-      <div class="section__results--item" *ngIf="(accountPremiseInfoMap.size) > 0 && (accountInfoMap.size > 0)">
-        <a *ngFor="let accountId of user.cisAccountNumbers " (click)="accountSelected(accountId)" class="account-info">
-          <div class="account-info--details">
-            <div class="account-info__address">
-             {{ accountPremiseInfoMap.get(accountId).premiseInfo[0].address2 }}
+      <div *ngIf="(accountPremiseInfoMap.size) > 0 && (accountInfoMap.size > 0)">
+        <div class="section__results--item" *ngFor="let accountId of user.cisAccountNumbers">
+          <a (click)="accountSelected(accountId)" class="account-info">
+            <div class="account-info--details">
+              <div class="account-info__address">
+                {{ accountPremiseInfoMap.get(accountId).premiseInfo[0].address2 }}
+              </div>
+              <div class="account-info__number">
+                {{ accountId }}
+              </div>
             </div>
-            <div class="account-info__number">
-              {{ accountId }}
+            <div class="account-info--balance {{addPastDueClass | PastDueDate: accountInfoMap.get(accountId).daysTillDue}}">
+              <div class="account-info__amount">
+                {{ accountInfoMap.get(accountId).totalAmtDue}}
+              </div>
+              <div class="account-info__due">
+                {{ accountInfoMap.get(accountId).daysTillDue | DueDate }}
+              </div>
             </div>
-          </div>
-          <div class="account-info--balance">
-            <div class="account-info__amount">
-              {{ accountInfoMap.get(accountId).totAmtDue}}
-            </div>
-            <div class="account-info__due">
-              {{ accountInfoMap.get(accountId).daysTillDue }}
-            </div>
-          </div>
-        </a>
+          </a>
+        </div>
       </div>
-
       <!-- <div class="section__results--item">
         <a href="#" class="account-info">
           <div class="account-info--details">
