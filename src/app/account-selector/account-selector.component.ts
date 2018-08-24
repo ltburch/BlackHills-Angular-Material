@@ -112,7 +112,7 @@ export class AccountSelectorComponent implements OnInit, DoCheck {
   setSortedAccounts() {
     this.sortedAccounts = Array.from(this.filteredPremiseInfoMap.keys());
     this.sortedAccounts.sort((id1, id2) => {
-      return (this.accountInfoMap.get(id1).daysTillDue - this.accountInfoMap.get(id2).daysTillDue);
+      return (this.accountInfoMap.get(id2).daysTillDue - this.accountInfoMap.get(id1).daysTillDue);
 
     });
     this.logger.log(this.sortedAccounts);
