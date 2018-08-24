@@ -49,11 +49,11 @@ export class AccountSelectorComponent implements OnInit, DoCheck {
       // this.menu.hide(); //hide hamburger menu in this page if there is no account selected.
     });
 
-    this.filteredOptions = this.searchControl.valueChanges
-      .pipe(
-        startWith(''),
-        map(value => this._filter(value))
-      );
+    // this.filteredOptions = this.searchControl.valueChanges
+    //   .pipe(
+    //     startWith(''),
+    //     map(value => this._filter(value))
+    //   );
 
       const accountInfos: Array<Observable<AccountInfo>> = new Array<Observable<AccountInfo>>();
 
@@ -94,11 +94,11 @@ export class AccountSelectorComponent implements OnInit, DoCheck {
     this.setSortedAccounts();
   }
 
-  private _filter(value: string): string[] {
-    const filterValue = value.toLowerCase();
-
-    return this.options.filter(option => option.toLowerCase().includes(filterValue));
-  }
+  // private _filter(value: string): string[] {
+  //   const filterValue = value.toLowerCase();
+  //
+  //   return this.options.filter(option => option.toLowerCase().includes(filterValue));
+  // }
 
   public accountSelected(accountId: string) {
     this.logger.log('account selected: ' + accountId);
@@ -107,14 +107,7 @@ export class AccountSelectorComponent implements OnInit, DoCheck {
     this.router.navigate([ '/dashboard' ]);
   }
 
-  // show options dropdown on input.
-  updatedVal(e) {
-    if (e && e.length >= 1) {
-       this.showAutocomplete = true;
-    } else {
-       this.showAutocomplete = false;
-    }
-  }
+
 
   setSortedAccounts() {
     this.sortedAccounts = Array.from(this.filteredPremiseInfoMap.keys());

@@ -30,6 +30,7 @@ import { AccountSelectorComponent } from './account-selector/account-selector.co
 
 import {DueDatePipe} from './pipes/due-date.pipe';
 import {PastDueDatePipe} from './pipes/past-due-date.pipe';
+import {sortByDueDatePiPe} from './pipes/sort-due-date.pipe';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import {PastDueDatePipe} from './pipes/past-due-date.pipe';
     CustomerServiceComponent,
     AccountSelectorComponent,
     DueDatePipe,
-    PastDueDatePipe
+    PastDueDatePipe,
+    sortByDueDatePiPe
 
   ],
   imports: [

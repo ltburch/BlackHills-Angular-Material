@@ -1,23 +1,26 @@
-<mat-spinner diameter="30" *ngIf="(accountPremiseInfoMap.size == 0) && (accountInfoMap.size == 0)">
-</mat-spinner>
-
-<ng-container *ngIf="(accountPremiseInfoMap.size > 0) && (accountInfoMap.size > 0)">
-
-  <section class="section account-selector" [class.no--menu]="!accountPremise">
+<section class="section account-selector" [class.no--menu]="!accountPremise">
+  <mat-spinner diameter="30" *ngIf="(accountPremiseInfoMap.size == 0) && (accountInfoMap.size == 0)">
+  </mat-spinner>
+  <ng-container *ngIf="(accountPremiseInfoMap.size > 0) && (accountInfoMap.size > 0)">
     <div class="container-sm">
-      <div class="section__heading">
-        Accounts
-      </div>
-      <ng-container *ngIf="(user.cisAccountNumbers.length) >= 3">
-        <div class="section__search">
-          <form class="search-form">
-            <mat-form-field>
-              <input type="text" #searchInput (keyup)="keyUp(searchInput.value)" placeholder="Search Accounts" aria-label="Number" matInput [formControl]="searchControl" (ngModelChange)="updatedVal($event)">
-              <mat-icon matSuffix>search</mat-icon>
-            </mat-form-field>
-          </form>
+      <div class="account-selector-flex">
+        <div class="section__heading">
+          Your Accounts
         </div>
-      </ng-container>
+        <ng-container *ngIf="(user.cisAccountNumbers.length) >= 3">
+          <div class="section__search">
+            <form class="search-form">
+              <mat-form-field>
+                <input type="text" #searchInput (keyup)="keyUp(searchInput.value)" placeholder="Search Accounts" aria-label="Number" matInput [formControl]="searchControl">
+                <mat-icon matSuffix>search</mat-icon>
+              </mat-form-field>
+            </form>
+          </div>
+        </ng-container>
+        <div class="section__results--action">
+          <a href="#">NEW</a>
+        </div>
+      </div>
 
       <div class="section__results">
         <!-- <div class="section__results--title">
@@ -26,21 +29,18 @@
         <div class="section__results--count">
           {{filteredPremiseInfoMap.size}} of {{user.cisAccountNumbers.length}}
         </div>
-        <div class="section__results--action">
-          <a href="#">NEW</a>
-        </div>
+
         <div *ngIf="(accountPremiseInfoMap.size > 0) && (accountInfoMap.size > 0)">
           <div class="section__results--item" *ngFor="let accountId of sortedAccounts">
             <a (click)="accountSelected(accountId)" class="account-info">
               <div class="account-info--details">
-
                 <div class="account-info__number">
                   {{ accountId }}
                 </div>
                 <div class="account-info__address">
-                  <span *ngIf="(accountPremiseInfoMap.get(accountId).premiseInfo.length) >= 2; else singleAddressTemplate">
+                  <ng-container *ngIf="(accountPremiseInfoMap.get(accountId).premiseInfo.length) >= 2; else singleAddressTemplate">
                     {{ accountPremiseInfoMap.get(accountId).premiseInfo.length }} service addresses
-                  </span>
+                  </ng-container>
                   <ng-template #singleAddressTemplate>
                     <span *ngFor="let address of accountPremiseInfoMap.get(accountId).premiseInfo">
                     {{ address.address2 }} <br />
@@ -59,7 +59,7 @@
               </div>
             </a>
           </div>
-        <!-- <div class="section__results--item">
+          <!-- <div class="section__results--item">
           <a href="#" class="account-info">
             <div class="account-info--details">
               <div class="account-info__address">
@@ -84,7 +84,7 @@
           </a>
         </div> -->
 
-        <!-- <div class="section__results--item">
+          <!-- <div class="section__results--item">
           <a href="#" class="account-info">
             <div class="account-info--details">
               <div class="account-info__address">
@@ -105,7 +105,7 @@
           </a>
         </div> -->
 
-        <!-- <div class="section__results--item">
+          <!-- <div class="section__results--item">
           <a href="#" class="account-info">
             <div class="account-info--details">
               <div class="account-info__address">
@@ -125,9 +125,9 @@
             </div>
           </a>
         </div> -->
-      </div>
+        </div>
       </div>
 
     </div>
-  </section>
-</ng-container>
+  </ng-container>
+</section>
