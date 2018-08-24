@@ -22,10 +22,10 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 })
 export class AccountSelectorComponent implements OnInit, DoCheck {
   searchControl = new FormControl();
-  options: string[] = ['1397 Timothy Ridge Dr.', '21353467', '24524 Florent Ave', '1105 Central Parkway'];
   filteredOptions: Observable<string[]>;
   showAutocomplete = false;
   user: BHUser;
+  sortedAccounts: Array<string>;
   accountInfoMap: Map<string, AccountInfo> = new Map<string, AccountInfo>();
   accountPremiseInfoMap: Map<string, AccountPremiseInfo> = new Map<string, AccountPremiseInfo>();
   filteredPremiseInfoMap: Map<string, AccountPremiseInfo>;
@@ -84,7 +84,6 @@ export class AccountSelectorComponent implements OnInit, DoCheck {
     accountInfos.forEach((acct, idx) => {
       this.accountInfoMap.set(Global.currentUser.cisAccountNumbers[idx], acct);
     });
-    this.accountInfoMap.get('1');
   }
 
   private gotAccountPremiseInfo(accountPremiseInfos: Array<AccountPremiseInfo>) {
@@ -92,6 +91,7 @@ export class AccountSelectorComponent implements OnInit, DoCheck {
       this.accountPremiseInfoMap.set(Global.currentUser.cisAccountNumbers[idx], acct);
     });
     this.filteredPremiseInfoMap = this.accountPremiseInfoMap;
+    this.setSortedAccounts();
   }
 
   private _filter(value: string): string[] {
@@ -116,6 +116,15 @@ export class AccountSelectorComponent implements OnInit, DoCheck {
     }
   }
 
+  setSortedAccounts() {
+    this.sortedAccounts = Array.from(this.filteredPremiseInfoMap.keys());
+    this.sortedAccounts.sort((id1, id2) => {
+      return (this.accountInfoMap.get(id1).daysTillDue - this.accountInfoMap.get(id2).daysTillDue);
+
+    });
+    this.logger.log(this.sortedAccounts);
+  }
+
   keyUp(filterString: string) {
     // reassigning is kind of a hint to angular change detection
     this.filteredPremiseInfoMap = new Map<string, AccountPremiseInfo>();
@@ -129,6 +138,7 @@ export class AccountSelectorComponent implements OnInit, DoCheck {
         }
       });
     });
+    this.setSortedAccounts();
 
   }
 
@@ -136,15 +146,7 @@ export class AccountSelectorComponent implements OnInit, DoCheck {
     return Array.from(myMap.keys());
   }
   ngDoCheck() {
-    // this.logger.log('init nav');
-    // a little hacky and wasteful but very light
-    // this.bhUser = Global.currentUser;
     this.accountPremise = Global.selectedAccountPremise;
-  //  if(this.accountPremise) {
-    //   setTimeout(() => {
-    //   //this.secondaryNav.show();
-    // });
-  //  }
   }
 
 

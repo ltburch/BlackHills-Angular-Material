@@ -24,13 +24,13 @@
           Accounts
         </div> -->
         <div class="section__results--count">
-          {{user.cisAccountNumbers.length}} result(s) found
+          {{filteredPremiseInfoMap.size}} of {{user.cisAccountNumbers.length}}
         </div>
         <div class="section__results--action">
           <a href="#">NEW</a>
         </div>
         <div *ngIf="(accountPremiseInfoMap.size > 0) && (accountInfoMap.size > 0)">
-          <div class="section__results--item" *ngFor="let accountId of getKeys(filteredPremiseInfoMap)">
+          <div class="section__results--item" *ngFor="let accountId of sortedAccounts">
             <a (click)="accountSelected(accountId)" class="account-info">
               <div class="account-info--details">
 
