@@ -38,14 +38,13 @@
           <div class="section__results--item" *ngFor="let accountId of user.cisAccountNumbers">
             <a (click)="accountSelected(accountId)" class="account-info">
               <div class="account-info--details">
-
                 <div class="account-info__number">
                   {{ accountId }}
                 </div>
                 <div class="account-info__address">
-                  <span *ngIf="(accountPremiseInfoMap.get(accountId).premiseInfo.length) >= 2; else singleAddressTemplate">
+                  <ng-container *ngIf="(accountPremiseInfoMap.get(accountId).premiseInfo.length) >= 2; else singleAddressTemplate">
                     {{ accountPremiseInfoMap.get(accountId).premiseInfo.length }} service addresses
-                  </span>
+                  </ng-container>
                   <ng-template #singleAddressTemplate>
                     <span *ngFor="let address of accountPremiseInfoMap.get(accountId).premiseInfo">
                     {{ address.address2 }} <br />
