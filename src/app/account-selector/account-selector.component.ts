@@ -28,6 +28,7 @@ export class AccountSelectorComponent implements OnInit, DoCheck {
   user: BHUser;
   accountInfoMap: Map<string, AccountInfo> = new Map<string, AccountInfo>();
   accountPremiseInfoMap: Map<string, AccountPremiseInfo> = new Map<string, AccountPremiseInfo>();
+  filteredPremiseInfoMap: Map<string, AccountPremiseInfo>;
   accountPremise: AccountPremiseInfo;
 
   constructor(
@@ -90,6 +91,7 @@ export class AccountSelectorComponent implements OnInit, DoCheck {
     accountPremiseInfos.forEach((acct, idx) => {
       this.accountPremiseInfoMap.set(Global.currentUser.cisAccountNumbers[idx], acct);
     });
+    this.filteredPremiseInfoMap = this.accountPremiseInfoMap;
   }
 
   private _filter(value: string): string[] {
@@ -114,6 +116,25 @@ export class AccountSelectorComponent implements OnInit, DoCheck {
     }
   }
 
+  keyUp(filterString: string) {
+    // reassigning is kind of a hint to angular change detection
+    this.filteredPremiseInfoMap = new Map<string, AccountPremiseInfo>();
+
+    // this filter may add the same premise info twice, but under the same key so no harm
+    // the number of situations underwhich that should happen is very low
+    this.accountPremiseInfoMap.forEach((val, key) => {
+      val.premiseInfo.forEach(premiseInfo => {
+        if (premiseInfo.address2.indexOf(filterString.toUpperCase()) !== -1) {
+          this.filteredPremiseInfoMap.set(key, val);
+        }
+      });
+    });
+
+  }
+
+  public getKeys(myMap) {
+    return Array.from(myMap.keys());
+  }
   ngDoCheck() {
     // this.logger.log('init nav');
     // a little hacky and wasteful but very light

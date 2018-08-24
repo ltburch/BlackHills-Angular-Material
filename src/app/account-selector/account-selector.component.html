@@ -12,13 +12,8 @@
         <div class="section__search">
           <form class="search-form">
             <mat-form-field>
-              <input type="text" placeholder="Search Accounts" aria-label="Number" matInput [formControl]="searchControl" [matAutocomplete]="auto" (ngModelChange)="updatedVal($event)">
+              <input type="text" #searchInput (keyup)="keyUp(searchInput.value)" placeholder="Search Accounts" aria-label="Number" matInput [formControl]="searchControl" (ngModelChange)="updatedVal($event)">
               <mat-icon matSuffix>search</mat-icon>
-              <mat-autocomplete #auto="matAutocomplete">
-                <mat-option [ngClass]="{'hide-autocomplete': !showAutocomplete}" *ngFor="let option of user.cisAccountNumbers" [value]="option">
-                  {{ accountPremiseInfoMap.get(option).premiseInfo[0].address2 }} {{ accountPremiseInfoMap.get(option).premiseInfo[0].address3 }}
-                </mat-option>
-              </mat-autocomplete>
             </mat-form-field>
           </form>
         </div>
@@ -35,7 +30,7 @@
           <a href="#">NEW</a>
         </div>
         <div *ngIf="(accountPremiseInfoMap.size > 0) && (accountInfoMap.size > 0)">
-          <div class="section__results--item" *ngFor="let accountId of user.cisAccountNumbers">
+          <div class="section__results--item" *ngFor="let accountId of getKeys(filteredPremiseInfoMap)">
             <a (click)="accountSelected(accountId)" class="account-info">
               <div class="account-info--details">
 
