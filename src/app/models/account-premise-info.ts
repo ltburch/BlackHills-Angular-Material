@@ -10,7 +10,7 @@ export class AccountPremiseInfo {
 
   numberreturned: string;
 
-  accountid: string;
+  accountId: string;
 
   lastname: string;
 
@@ -19,5 +19,3 @@ export class AccountPremiseInfo {
   @Type(() => Premise)
   premiseInfo: Array<Premise>;
 }
-
-

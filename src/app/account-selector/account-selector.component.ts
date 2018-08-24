@@ -81,12 +81,14 @@ export class AccountSelectorComponent implements OnInit, DoCheck {
   }
 
    private gotAccountInfo(accountInfos: Array<AccountInfo>) {
-    accountInfos.forEach((acct, idx) => {
-      this.accountInfoMap.set(Global.currentUser.cisAccountNumbers[idx], acct);
-    });
+
+       accountInfos.forEach((acct, idx) => {
+         this.accountInfoMap.set(Global.currentUser.cisAccountNumbers[idx], acct);
+       });
+
   }
 
-  private gotAccountPremiseInfo(accountPremiseInfos: Array<AccountPremiseInfo>) {
+  private gotAccountPremiseInfo(accountPremiseInfos: Array<AccountPremiseInfo>, accountInfos: Array<AccountInfo>) {
     accountPremiseInfos.forEach((acct, idx) => {
       this.accountPremiseInfoMap.set(Global.currentUser.cisAccountNumbers[idx], acct);
     });
@@ -121,18 +123,20 @@ export class AccountSelectorComponent implements OnInit, DoCheck {
   keyUp(filterString: string) {
     // reassigning is kind of a hint to angular change detection
     this.filteredPremiseInfoMap = new Map<string, AccountPremiseInfo>();
-
     // this filter may add the same premise info twice, but under the same key so no harm
     // the number of situations underwhich that should happen is very low
     this.accountPremiseInfoMap.forEach((val, key) => {
+      if(val.accountId.indexOf(filterString.toUpperCase()) !== -1) {
+        this.filteredPremiseInfoMap.set(key, val);
+      }
       val.premiseInfo.forEach(premiseInfo => {
         if (premiseInfo.address2.indexOf(filterString.toUpperCase()) !== -1) {
           this.filteredPremiseInfoMap.set(key, val);
         }
       });
-    });
-    this.setSortedAccounts();
+      });
 
+    this.setSortedAccounts();
   }
 
   public getKeys(myMap) {
