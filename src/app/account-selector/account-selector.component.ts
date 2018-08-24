@@ -22,8 +22,6 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 })
 export class AccountSelectorComponent implements OnInit, DoCheck {
   searchControl = new FormControl();
-  options: string[] = ['1397 Timothy Ridge Dr.', '21353467', '24524 Florent Ave', '1105 Central Parkway'];
-  filteredOptions: Observable<string[]>;
   showAutocomplete = false;
   user: BHUser;
   accountInfoMap: Map<string, AccountInfo> = new Map<string, AccountInfo>();
@@ -49,11 +47,11 @@ export class AccountSelectorComponent implements OnInit, DoCheck {
       // this.menu.hide(); //hide hamburger menu in this page if there is no account selected.
     });
 
-    this.filteredOptions = this.searchControl.valueChanges
-      .pipe(
-        startWith(''),
-        map(value => this._filter(value))
-      );
+    // this.filteredOptions = this.searchControl.valueChanges
+    //   .pipe(
+    //     startWith(''),
+    //     map(value => this._filter(value))
+    //   );
 
       const accountInfos: Array<Observable<AccountInfo>> = new Array<Observable<AccountInfo>>();
 
@@ -94,11 +92,11 @@ export class AccountSelectorComponent implements OnInit, DoCheck {
     this.filteredPremiseInfoMap = this.accountPremiseInfoMap;
   }
 
-  private _filter(value: string): string[] {
-    const filterValue = value.toLowerCase();
-
-    return this.options.filter(option => option.toLowerCase().includes(filterValue));
-  }
+  // private _filter(value: string): string[] {
+  //   const filterValue = value.toLowerCase();
+  //
+  //   return this.options.filter(option => option.toLowerCase().includes(filterValue));
+  // }
 
   public accountSelected(accountId: string) {
     this.logger.log('account selected: ' + accountId);
@@ -107,14 +105,7 @@ export class AccountSelectorComponent implements OnInit, DoCheck {
     this.router.navigate([ '/dashboard' ]);
   }
 
-  // show options dropdown on input.
-  updatedVal(e) {
-    if (e && e.length >= 1) {
-       this.showAutocomplete = true;
-    } else {
-       this.showAutocomplete = false;
-    }
-  }
+
 
   keyUp(filterString: string) {
     // reassigning is kind of a hint to angular change detection
