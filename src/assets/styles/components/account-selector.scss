@@ -151,3 +151,9 @@
   padding-left: 0;
 }
 }
+
+@media (min-width: $screen-sm) {
+  .account-selector .section__search {
+    float: left;
+  }
+}
