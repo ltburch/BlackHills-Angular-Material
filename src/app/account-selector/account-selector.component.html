@@ -27,7 +27,7 @@
         <!-- <div class="section__results--title">
           Accounts
         </div> -->
-        <div class="section__results--count">
+        <div *ngIf="(user.cisAccountNumbers.length) >= 3" class="section__results--count">
           {{filteredPremiseInfoMap.size}} of {{user.cisAccountNumbers.length}} result(s)
         </div>
 
