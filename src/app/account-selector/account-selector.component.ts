@@ -126,9 +126,6 @@ export class AccountSelectorComponent implements OnInit, DoCheck {
     // this filter may add the same premise info twice, but under the same key so no harm
     // the number of situations underwhich that should happen is very low
     this.accountPremiseInfoMap.forEach((val, key) => {
-      if(val.accountId.indexOf(filterString.toUpperCase()) !== -1) {
-        this.filteredPremiseInfoMap.set(key, val);
-      }
       val.premiseInfo.forEach(premiseInfo => {
         if ((premiseInfo.address2.indexOf(filterString.toUpperCase()) !== -1) || (key.indexOf(filterString.toUpperCase()) !== -1)) {
           this.filteredPremiseInfoMap.set(key, val);
