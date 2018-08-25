@@ -126,7 +126,7 @@ export class AccountSelectorComponent implements OnInit, DoCheck {
     // the number of situations underwhich that should happen is very low
     this.accountPremiseInfoMap.forEach((val, key) => {
       val.premiseInfo.forEach(premiseInfo => {
-        if (premiseInfo.address2.indexOf(filterString.toUpperCase()) !== -1) {
+        if ((premiseInfo.address2.indexOf(filterString.toUpperCase()) !== -1) || (key.indexOf(filterString.toUpperCase()) !== -1)) {
           this.filteredPremiseInfoMap.set(key, val);
         }
       });
