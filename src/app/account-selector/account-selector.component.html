@@ -7,6 +7,9 @@
         <div class="section__heading">
           Your Accounts
         </div>
+        <div class="section__results--action">
+          <a href="#">NEW</a>
+        </div>
         <ng-container *ngIf="(user.cisAccountNumbers.length) >= 3">
           <div class="section__search">
             <form class="search-form">
@@ -17,9 +20,7 @@
             </form>
           </div>
         </ng-container>
-        <div class="section__results--action">
-          <a href="#">NEW</a>
-        </div>
+
       </div>
 
       <div class="section__results">
@@ -27,7 +28,7 @@
           Accounts
         </div> -->
         <div class="section__results--count">
-          {{filteredPremiseInfoMap.size}} of {{user.cisAccountNumbers.length}}
+          {{filteredPremiseInfoMap.size}} of {{user.cisAccountNumbers.length}} result(s)
         </div>
 
         <div *ngIf="(accountPremiseInfoMap.size > 0) && (accountInfoMap.size > 0)">

@@ -40,7 +40,7 @@
 </mat-sidenav-container>
 <!-- show this component by default -->
 <mat-toolbar *ngIf="!nav.visible" color="primary" class="header-container header-container__main">
-  <img src="../assets/images/BHLogo.svg" class="primary--logo" alt="Black Hills Energy logo" *ngIf="!isSmallScreen" />
+  <img src="assets/images/BHLogo.svg" class="primary--logo" alt="Black Hills Energy logo" *ngIf="!isSmallScreen" />
   <!-- <button type="button" class="header--menu__icon" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async"> -->
   <span *ngIf="accountPremise">
   <button type="button" class="header--menu__icon" aria-label="Toggle sidenav" mat-icon-button (click)="toggleSideNav()" *ngIf="isSmallScreen">

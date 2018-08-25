@@ -3,6 +3,10 @@
 }
 
 .account-selector {
+  .section__heading {
+    float: left;
+  }
+
   .section__results--title {
     font-size: 24px;
     font-family: $AcuminProLight;
@@ -25,9 +29,9 @@
   }
 
   .section__results--action {
-    position: absolute;
-    right: 25px;
-    margin-top: -5px;
+    float: right;
+    right: 0;
+    margin-top: 4px;
 
     a {
       text-decoration: none;
@@ -107,14 +111,26 @@
 
 @media (min-width: $screen-tablet) {
   .account-selector {
+    .account-selector-flex {
+      display: flex;
+      justify-content: space-between;
+    }
+
     .section__heading {
-      //float: left;
+      float: none;
       margin-top: 20px;
       padding-left: 15px;
+      order: 1;
     }
 
     .section__results {
       clear: both;
+    }
+
+    .section__search {
+      width: 300px;
+      padding: 0;
+      order: 2;
     }
 
     .section__results--item {
@@ -140,29 +156,19 @@
     .section__results--count {
       width: 100%;
       text-align: center;
+      margin-left: 55px;
+      padding-left: 0;
     }
 
     .section__results--action {
       padding-right: 15px;
-      margin-top: 27px;
+      margin-top: 30px;
       margin-bottom: 0;
       position: relative;
       right: 0;
+      order: 3;
     }
 
 
   }
-}
-
-@media (min-width: $screen-tablet) {
-.account-selector .section__search {
-  //float: left;
-  width: 300px;
-  padding: 0;
-}
-
-.account-selector-flex {
-  display: flex;
-  justify-content: space-between;
-}
 }
