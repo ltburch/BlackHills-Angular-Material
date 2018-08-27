@@ -1,0 +1,23 @@
+
+
+.error-num {
+	display: inline-block;
+	padding: 5 0;
+	margin-bottom: 4;
+}
+
+.error-info {
+	background: lightgrey;
+	padding: 4;
+	font-size: 12px;
+}
+
+.error-wrap {
+	max-width: 100%;
+	width: 100%;
+	overflow: auto;
+}
+
+.column {
+	max-width: 100%;
+}

@@ -9,9 +9,11 @@ import { LoginComponent } from './login/login.component';
 import { CustomerServiceComponent } from './customer-service/customer-service.component';
 import { AccountSelectorComponent } from './account-selector/account-selector.component';
 import { BHUserResolve } from './util/user-resolve';
+import { GlobalErrorComponent } from './error-handler/global-error.component';
 
 //  { path: 'login', component: LoginComponent },
 const routes: Routes = [
+  { path: 'error', component: GlobalErrorComponent },
   { path: '',   redirectTo: 'account-selector', pathMatch: 'full', resolve: { user: BHUserResolve }, },
   // { path: 'login', component: LoginComponent, canActivate: [AuthGuard] },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },

@@ -131,7 +131,7 @@ export class AccountSelectorComponent implements OnInit, DoCheck {
           this.filteredPremiseInfoMap.set(key, val);
         }
       });
-      });
+    });
 
     this.setSortedAccounts();
   }
@@ -139,10 +139,9 @@ export class AccountSelectorComponent implements OnInit, DoCheck {
   public getKeys(myMap) {
     return Array.from(myMap.keys());
   }
+
   ngDoCheck() {
     this.accountPremise = Global.selectedAccountPremise;
   }
-
-
 
 }

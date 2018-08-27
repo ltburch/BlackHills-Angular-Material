@@ -1,0 +1,32 @@
+<div class="error page">
+	<div class="row">
+		<div class="small-12 column">
+			<div class="card">
+				<ng-container *ngIf="showErrors else noErrors">
+					<div class="row margin-bottom-lg">
+						<div class="column small-12">
+							<h2>An unexpected error has occurred</h2>
+							<p *ngIf="refPage">
+								Page: {{refPage}}
+							</p>
+						</div>
+					</div>
+
+					<div class="row margin-bottom-lg" *ngFor="let error of fatalErrors; let i = index">
+						<div class="column">
+							<h2 *ngIf="fatalErrors.length > 1" class="error-num">{{i+1}}</h2>
+							<div class="error-wrap">
+								<div class="error-info">
+									<pre>{{error}}</pre>
+								</div>
+							</div>
+						</div>
+					</div>
+				</ng-container>
+				<ng-template #noErrors>
+					MyLoans is currently experiencing technical difficulties. We apologize for the inconvenience. Please try again later.
+				</ng-template>
+				</div>
+		</div>
+	</div>
+</div>
