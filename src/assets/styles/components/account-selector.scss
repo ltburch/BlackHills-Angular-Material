@@ -111,6 +111,21 @@
 
 @media (min-width: $screen-tablet) {
   .account-selector {
+
+    .account-info--details {
+      display: flex;
+      justify-content: space-between;
+      width: 50%;
+    }
+
+    .account-info__number {
+      order: 2;
+    }
+
+    .account-info__address {
+      order: 1;
+    }
+
     .account-selector-flex {
       display: flex;
       justify-content: space-between;
