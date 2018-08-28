@@ -1,14 +1,76 @@
-<section class="section account-selector">
-  <div class="container-sm">
+<section class="section dashboard">
+  <div class="container-lg">
+    <h1>Welcome {{bhUser.firstName}}</h1>
+    <div class="dashboard-container">
+      <!--Outage Card -->
+      <mat-card class="card outage-card">
+        <div class="card-label">
+          OUTAGE
+        </div>
+        <div class="card-content">
+          <a href="#">
+            <mat-icon aria-label="warning icon" class="warning-icon">warning</mat-icon>
+            <div class="card-alert-text">
+              Crews are currently working to resolve several outages in your area.
+            </div>
+          </a>
+        </div>
+      </mat-card>
+
+      <!-- Payment Card -->
+      <mat-card class="card billing-card">
+        <div class="card-label">
+          BILLING
+        </div>
+        <div class="card-content">
+          <a href="#">
+            <div class="billing-text">
+              Your next bill is due in 12 days
+            </div>
+            <div class="billing-amount">
+              <div class="billing-amount__value">
+                $234.60
+              </div>
+              <div class="billing-amount__due">
+                Due 8/27/2018
+              </div>
+            </div>
+          </a>
+        </div>
+      </mat-card>
+
+      <!-- Usage Card -->
+      <mat-card class="card billing-card">
+        <div class="card-label">
+          Usage
+        </div>
+        <div class="card-content">
+          <a href="#">
+          Usage Card Content
+          </a>
+        </div>
+      </mat-card>
+
+      <!-- <mat-card class="card billing-card">
+        <div class="card-label">
+          Just Another Card
+        </div>
+        <div class="card-content">
+          <a href="#">
+          Enjoy!!!
+          </a>
+        </div>
+      </mat-card> -->
+    </div>
     <!--SNACKBAR COMPONENT-->
-    <mat-card class="card">
+    <!-- <mat-card class="card">
       <mat-card-content>
         <button mat-raised-button class="primary-button" (click)="openSnackBar('This is a snackbar.', 'Munch!!!')">Show snack-bar</button>
       </mat-card-content>
-    </mat-card>
+    </mat-card> -->
 
     <!--CHIPS COMPONENT-->
-    <mat-card class="card">
+    <!-- <mat-card class="card">
       CHIPS
       <mat-card-content>
         <mat-chip-list>
@@ -17,10 +79,10 @@
           <mat-chip>Dal</mat-chip>
         </mat-chip-list>
       </mat-card-content>
-    </mat-card>
+    </mat-card> -->
 
     <!--EXPANSION PANEL COMPONENT-->
-    <mat-expansion-panel>
+    <!-- <mat-expansion-panel>
       <mat-expansion-panel-header>
         <mat-panel-title>
           Expanding Card
@@ -35,10 +97,10 @@
       <mat-form-field>
         <input matInput placeholder="Age">
       </mat-form-field>
-    </mat-expansion-panel>
+    </mat-expansion-panel> -->
 
     <!--FORM ELEMENTS COMPONENT-->
-    <mat-card class="card">
+    <!-- <mat-card class="card">
       Form Elements
       <mat-card-content>
         <p>
@@ -67,10 +129,10 @@
         </p>
 
       </mat-card-content>
-    </mat-card>
+    </mat-card> -->
 
     <!--BUTTONS COMPONENT-->
-    <mat-card class="card">
+    <!-- <mat-card class="card">
       Buttons
       <mat-card-content>
         <p>
@@ -78,10 +140,10 @@
         <p>
           <button mat-raised-button class="primary-button">Raised Button</button></p>
       </mat-card-content>
-    </mat-card>
+    </mat-card> -->
 
     <!--TABS COMPONENT-->
-    <mat-card class="card">
+    <!-- <mat-card class="card">
       <div class="tab__title">
         Tabs
       </div>
@@ -92,10 +154,10 @@
           <mat-tab label="Third"> Content 3 </mat-tab>
         </mat-tab-group>
       </mat-card-content>
-    </mat-card>
+    </mat-card> -->
 
     <!--TABS COMPONENT-->
-    <mat-card class="card">
+    <!-- <mat-card class="card">
       <div class="tab__title">
         Scrolling Tabs
       </div>
@@ -109,10 +171,10 @@
           <mat-tab label="Six"> Content 6 </mat-tab>
         </mat-tab-group>
       </mat-card-content>
-    </mat-card>
+    </mat-card> -->
 
     <!--CARD COMPONENT-->
-    <mat-card class="card">Billing
+    <!-- <mat-card class="card">Billing
       <mat-card-actions class="right">
         <mat-card-content>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
@@ -155,6 +217,6 @@
           <button  mat-raised-button color="primary">View Promo</button>
         </a>
       </mat-card-actions>
-    </mat-card>
+    </mat-card> -->
   </div>
 </section>
