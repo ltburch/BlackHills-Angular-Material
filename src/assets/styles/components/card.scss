@@ -1,4 +1,67 @@
-.mat-card {
-  width: auto !important; //hotfix for now.
-  display: block !important;
+
+.card {
+  &.mat-card {
+    margin: 30px 0;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.16);
+    padding: 0 15px;
+
+    .card-label {
+      padding-top: 13px;
+      font-size: 13px;
+      font-family: $AcuminProLight;
+      color: $BlackHillsGray;
+      text-transform: uppercase;
+    }
+
+    .card-content {
+      padding: 10px 0 20px 0;
+
+      a {
+        display: flex;
+      }
+    }
+
+    .card-alert-text {
+      color: $BlackHillsOrange;
+      font-family: $AcuminProMedium;
+      font-size: 16px;
+      align-self: center;
+      margin-left: 20px;
+    }
+
+    .warning-icon {
+      color: $BlackHillsOrange;
+      width: 66px;
+      height: 60px;
+      font-size: 66px;
+    }
+
+    .billing-text {
+      font-family: $AcuminProBold;
+      font-size: 22px;
+      color: $black;
+      width: 60%;
+    }
+
+    .billing-amount {
+      width: 40%;
+      text-align: right;
+    }
+
+    .billing-amount__value {
+      color: $BlackHillsGreen;
+      font-family: $AcuminProBold;
+      font-size: 24px;
+
+      &.past--due {
+        color: $BlackHillsOrange;
+      }
+    }
+
+    .billing-amount__due {
+      font-family: $AcuminProMedium;
+      font-size: 12px;
+      color: $BlackHillsGray;
+    }
+  }
 }

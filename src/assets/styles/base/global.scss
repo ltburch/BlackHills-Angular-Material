@@ -15,18 +15,10 @@ body {
   padding: 25px;
 }
 
-.section__heading {
-  font-size: 24px;
-  font-family: $AcuminProLight;
-  color: $fontGray;
-  padding-bottom: 10px;
-  padding-left: 5px;
-}
-
 @media (min-width: $screen-sm) {
   .section {
     max-width: calc(100% - 320px);
-    padding: 25px 50px;
+    padding: 50px;
     margin-left: 320px;
 
     &.no--menu {

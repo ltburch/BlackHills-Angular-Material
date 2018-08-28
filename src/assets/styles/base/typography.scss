@@ -5,3 +5,18 @@ html, body {
 .small-text{
   font-size: x-small;
 }
+
+h1 {
+  font-size: 24px;
+  font-family: $AcuminProLight;
+  color: $fontGray;
+  padding-bottom: 10px;
+  //padding-left: 5px;
+  margin: 0;
+  font-weight: normal;
+}
+
+h2 {
+  font-size: 20px;
+  font-weight: normal;
+}
