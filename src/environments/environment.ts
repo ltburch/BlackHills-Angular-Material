@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  enableLogging: true
+  enableLogging: true,
+  localJson: true,
 };
 
 /*

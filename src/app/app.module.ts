@@ -1,4 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
@@ -49,6 +51,7 @@ import { AccountSelectorComponent } from './account-selector/account-selector.co
 import { DueDatePipe } from './pipes/due-date.pipe';
 import { PastDueDatePipe } from './pipes/past-due-date.pipe';
 import { AppService } from './util/app.service';
+import { ApiService } from './services/api.service';
 
 // entryComponents: [AccountSelectorComponent]
 // this forms the interface between the container (who knows about security)
@@ -80,6 +83,8 @@ declare global {
   ],
   imports: [
     BrowserModule,
+    // import HttpClientModule after BrowserModule.
+    HttpClientModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
@@ -106,6 +111,7 @@ declare global {
   ],
   providers: [
     Logger,
+    ApiService,
     AuthGuard,
     AuthService,
     UserDetailsService,

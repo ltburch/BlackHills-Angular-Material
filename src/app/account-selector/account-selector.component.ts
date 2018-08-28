@@ -57,15 +57,22 @@ export class AccountSelectorComponent implements OnInit, DoCheck {
 
       const accountInfos: Array<Observable<AccountInfo>> = new Array<Observable<AccountInfo>>();
 
+      const allGets: Array<Observable<any>> = new Array<Observable<any>>();
+
       Global.currentUser.cisAccountNumbers.forEach(acct => {
-        accountInfos.push(this.entireXService.getAccountInfo(acct));
+        const observable = this.entireXService.getAccountInfo(acct);
+        accountInfos.push(observable);
+        allGets.push(observable);
+
       });
       forkJoin(accountInfos).subscribe(this.gotAccountInfo.bind(this));
 
       const accountPremiseInfos: Array<Observable<AccountPremiseInfo>> = new Array<Observable<AccountPremiseInfo>>();
 
       Global.currentUser.cisAccountNumbers.forEach(acct => {
-        accountPremiseInfos.push(this.entireXService.getAccountPremiseInfo(acct));
+        const observable = this.entireXService.getAccountPremiseInfo(acct);
+        accountPremiseInfos.push(observable);
+        allGets.push(observable);
       });
 
       forkJoin(accountPremiseInfos).subscribe(this.gotAccountPremiseInfo.bind(this));
@@ -78,6 +85,9 @@ export class AccountSelectorComponent implements OnInit, DoCheck {
       this.logger.log('Global user ' + Global.currentUser.firstName);
       // this.logger.log('Global Account ' + Global.currentAccount);
       this.user = Global.currentUser;
+      // so we want to sort the array but we only want to do it once the account info and premise info has been
+      // fetched
+      forkJoin(allGets).subscribe(this.setSortedAccounts.bind(this));
   }
 
    private gotAccountInfo(accountInfos: Array<AccountInfo>) {
@@ -93,7 +103,7 @@ export class AccountSelectorComponent implements OnInit, DoCheck {
       this.accountPremiseInfoMap.set(Global.currentUser.cisAccountNumbers[idx], acct);
     });
     this.filteredPremiseInfoMap = this.accountPremiseInfoMap;
-    this.setSortedAccounts();
+    // this.setSortedAccounts();
   }
 
   // private _filter(value: string): string[] {

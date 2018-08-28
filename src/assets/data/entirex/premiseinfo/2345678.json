@@ -1,0 +1,14 @@
+{
+  "returnCode" : 0,
+  "messageCode" : 0,
+  "numberReturned" : 1,
+  "accountId" : "0002345678",
+  "lastName" : "WHILE",
+  "firstName" : "CYOTE",
+  "premiseInfo" : [ {
+    "premiseId": "2",
+    "address1" : "WHILE CYOTE",
+    "address2" : "741 SPRINGFIELD TERRACE",
+    "address3" : "CHEYENNE WY 820465 6794"
+  }]
+}

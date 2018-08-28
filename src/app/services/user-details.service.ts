@@ -3,7 +3,9 @@ import { plainToClass } from 'class-transformer';
 import { BHUser } from '../models/bh-user';
 import { delay } from 'rxjs/internal/operators';
 import { Logger } from '../util/logger.service';
+import { Injectable } from '@angular/core';
 
+@Injectable()
 export class UserDetailsService {
 
   dummyValue = '{ \

@@ -13,6 +13,7 @@ export class CustomErrorHandler implements ErrorHandler {
     const logger = this.injector.get(Logger);
     const appService = this.injector.get(AppService);
     const type = typeof error;
+    logger.log(error);
     // const se: ServerError = new ServerError(typeof error, error.message, error.stack);
 
     // // logger.error('UNCAUGHT ERROR', error);
